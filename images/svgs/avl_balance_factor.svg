@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <text x="450" y="30" text-anchor="middle" fill="#1a1a1a" font-size="22" font-weight="bold">Balance Factor</text>
+  <text x="450" y="52" text-anchor="middle" fill="#777" font-size="13">balance_factor = height(left subtree) &#x2212; height(right subtree)</text>
+
+  <!-- Formula box -->
+  <rect x="200" y="68" width="500" height="44" rx="8" fill="#1e1e1e"/>
+  <text x="450" y="96" text-anchor="middle" fill="#f9e2af" font-size="14" font-family="Consolas, 'Courier New', monospace">BF(node) = height(node&#x2192;left) &#x2212; height(node&#x2192;right)</text>
+
+  <!-- Valid range -->
+  <rect x="100" y="126" width="700" height="36" rx="8" fill="#eafaf1" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="450" y="150" text-anchor="middle" fill="#1a5e32" font-size="13" font-weight="bold">AVL rule: every node must have BF &#x2208; {&#x2212;1, 0, +1}</text>
+
+  <!-- Three examples side by side -->
+  <!-- BF = 0 (perfectly balanced) -->
+  <rect x="30" y="180" width="270" height="170" rx="10" fill="#fff" stroke="#27ae60" stroke-width="2"/>
+  <text x="165" y="204" text-anchor="middle" fill="#27ae60" font-size="14" font-weight="bold">BF = 0 (balanced)</text>
+
+  <circle cx="165" cy="240" r="18" fill="#27ae60" stroke="#1e8449" stroke-width="2"/>
+  <text x="165" y="245" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">50</text>
+  <text x="195" y="232" fill="#27ae60" font-size="11" font-weight="bold">BF=0</text>
+  <line x1="151" y1="254" x2="115" y2="284" stroke="#1e8449" stroke-width="1.5"/>
+  <line x1="179" y1="254" x2="215" y2="284" stroke="#1e8449" stroke-width="1.5"/>
+  <circle cx="115" cy="298" r="16" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="115" y="303" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">30</text>
+  <circle cx="215" cy="298" r="16" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="215" y="303" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">70</text>
+  <text x="165" y="338" text-anchor="middle" fill="#555" font-size="11">h(left)=0, h(right)=0 &#x2192; 0&#x2212;0 = 0</text>
+
+  <!-- BF = +1 (left-heavy, still valid) -->
+  <rect x="315" y="180" width="270" height="170" rx="10" fill="#fff" stroke="#f39c12" stroke-width="2"/>
+  <text x="450" y="204" text-anchor="middle" fill="#e67e22" font-size="14" font-weight="bold">BF = +1 (left-heavy, OK)</text>
+
+  <circle cx="450" cy="240" r="18" fill="#f39c12" stroke="#d68910" stroke-width="2"/>
+  <text x="450" y="245" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">50</text>
+  <text x="480" y="232" fill="#e67e22" font-size="11" font-weight="bold">BF=+1</text>
+  <line x1="436" y1="254" x2="400" y2="284" stroke="#d68910" stroke-width="1.5"/>
+  <circle cx="400" cy="298" r="16" fill="#f5b041" stroke="#f39c12" stroke-width="1.5"/>
+  <text x="400" y="303" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">30</text>
+  <text x="510" y="290" fill="#bdc3c7" font-size="11" font-style="italic">no right child</text>
+  <text x="450" y="338" text-anchor="middle" fill="#555" font-size="11">h(left)=0, h(right)=&#x2212;1 &#x2192; 0&#x2212;(&#x2212;1) = +1</text>
+
+  <!-- BF = -2 (VIOLATION!) -->
+  <rect x="600" y="180" width="270" height="170" rx="10" fill="#fff" stroke="#e74c3c" stroke-width="2"/>
+  <text x="735" y="204" text-anchor="middle" fill="#e74c3c" font-size="14" font-weight="bold">BF = &#x2212;2 (VIOLATION!)</text>
+
+  <circle cx="700" cy="240" r="18" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="700" y="245" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">30</text>
+  <text x="730" y="232" fill="#e74c3c" font-size="11" font-weight="bold">BF=&#x2212;2</text>
+  <line x1="714" y1="254" x2="750" y2="284" stroke="#c0392b" stroke-width="1.5"/>
+  <circle cx="750" cy="298" r="16" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="750" y="303" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">50</text>
+  <line x1="764" y1="312" x2="790" y2="334" stroke="#c0392b" stroke-width="1.5"/>
+  <circle cx="790" cy="344" r="14" fill="#c0392b" stroke="#922b21" stroke-width="1.5"/>
+  <text x="790" y="349" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">70</text>
+  <text x="660" y="340" fill="#e74c3c" font-size="11" font-weight="bold">&#x2192; ROTATE!</text>
+
+  <!-- Summary table -->
+  <rect x="30" y="370" width="840" height="76" rx="10" fill="#f8f9fa" stroke="#bdc3c7" stroke-width="1.5"/>
+  <text x="450" y="394" text-anchor="middle" fill="#2c3e50" font-size="14" font-weight="bold">What the Balance Factor Tells You</text>
+  <text x="120" y="420" text-anchor="middle" fill="#27ae60" font-size="12" font-weight="bold">BF = 0</text>
+  <text x="120" y="436" text-anchor="middle" fill="#555" font-size="11">Perfectly balanced</text>
+  <text x="310" y="420" text-anchor="middle" fill="#f39c12" font-size="12" font-weight="bold">BF = +1</text>
+  <text x="310" y="436" text-anchor="middle" fill="#555" font-size="11">Left subtree 1 taller</text>
+  <text x="500" y="420" text-anchor="middle" fill="#f39c12" font-size="12" font-weight="bold">BF = &#x2212;1</text>
+  <text x="500" y="436" text-anchor="middle" fill="#555" font-size="11">Right subtree 1 taller</text>
+  <text x="710" y="420" text-anchor="middle" fill="#e74c3c" font-size="12" font-weight="bold">|BF| &#x2265; 2</text>
+  <text x="710" y="436" text-anchor="middle" fill="#555" font-size="11">Rotation needed!</text>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <text x="450" y="28" text-anchor="middle" fill="#1a1a1a" font-size="20" font-weight="bold">Left-Left (LL) Case &#x2014; Single Right Rotation</text>
+  <text x="450" y="48" text-anchor="middle" fill="#777" font-size="12">Imbalance at node with BF = +2, caused by insertion into left child&#x2019;s LEFT subtree</text>
+
+  <!-- BEFORE -->
+  <rect x="30" y="66" width="380" height="220" rx="10" fill="#fdedec" stroke="#e74c3c" stroke-width="1.5"/>
+  <text x="220" y="88" text-anchor="middle" fill="#922b21" font-size="14" font-weight="bold">Before (unbalanced)</text>
+
+  <circle cx="250" cy="130" r="20" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="250" y="135" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">30</text>
+  <text x="280" y="122" fill="#e74c3c" font-size="11">BF=+2</text>
+  <line x1="234" y1="146" x2="170" y2="186" stroke="#c0392b" stroke-width="2"/>
+  <circle cx="170" cy="200" r="20" fill="#f39c12" stroke="#d68910" stroke-width="2"/>
+  <text x="170" y="205" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">20</text>
+  <text x="200" y="192" fill="#f39c12" font-size="11">BF=+1</text>
+  <line x1="154" y1="216" x2="110" y2="248" stroke="#d68910" stroke-width="2"/>
+  <circle cx="110" cy="260" r="18" fill="#3498db" stroke="#2471a3" stroke-width="2"/>
+  <text x="110" y="265" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">10</text>
+  <text x="110" y="250" fill="#3498db" font-size="10">new</text>
+
+  <!-- Arrow -->
+  <text x="450" y="185" text-anchor="middle" fill="#27ae60" font-size="16" font-weight="bold">right_rotate(30)</text>
+  <text x="450" y="205" text-anchor="middle" fill="#27ae60" font-size="24">&#x2192;</text>
+
+  <!-- AFTER -->
+  <rect x="490" y="66" width="380" height="220" rx="10" fill="#eafaf1" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="680" y="88" text-anchor="middle" fill="#1a5e32" font-size="14" font-weight="bold">After (balanced)</text>
+
+  <circle cx="680" cy="140" r="20" fill="#27ae60" stroke="#1e8449" stroke-width="2"/>
+  <text x="680" y="145" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">20</text>
+  <text x="710" y="132" fill="#27ae60" font-size="11">BF=0</text>
+  <line x1="664" y1="156" x2="620" y2="196" stroke="#1e8449" stroke-width="2"/>
+  <line x1="696" y1="156" x2="740" y2="196" stroke="#1e8449" stroke-width="2"/>
+  <circle cx="620" cy="210" r="18" fill="#3498db" stroke="#2471a3" stroke-width="2"/>
+  <text x="620" y="215" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">10</text>
+  <circle cx="740" cy="210" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="740" y="215" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">30</text>
+
+  <!-- Key insight -->
+  <rect x="30" y="298" width="840" height="32" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="450" y="320" text-anchor="middle" fill="#1a5276" font-size="12" font-weight="bold">20 becomes the new root. Its right child (if any) would become 30&#x2019;s left child. BST property preserved.</text>
+</svg>
