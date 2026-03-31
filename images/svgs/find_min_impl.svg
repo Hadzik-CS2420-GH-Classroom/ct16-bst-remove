@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <text x="450" y="28" text-anchor="middle" fill="#1a1a1a" font-size="20" font-weight="bold">find_min_() &#x2014; Implementation</text>
+  <text x="450" y="48" text-anchor="middle" fill="#777" font-size="12">Iterative loop &#x2014; walk left until node&#x2192;left is nullptr</text>
+
+  <!-- Code -->
+  <rect x="30" y="66" width="380" height="110" rx="8" fill="#1e1e1e"/>
+  <text x="50" y="90" fill="#4ec9b0" font-size="12" font-family="Consolas, monospace">Node* <tspan fill="#dcdcaa">find_min_</tspan>(<tspan fill="#4ec9b0">Node</tspan>* <tspan fill="#9cdcfe">node</tspan>) <tspan fill="#569cd6">const</tspan> {</text>
+  <text x="70" y="112" fill="#6a9955" font-size="12" font-family="Consolas, monospace">// Walk left until we can&#x2019;t go further</text>
+  <text x="70" y="132" fill="#569cd6" font-size="12" font-family="Consolas, monospace">while <tspan fill="#d4d4d4">(</tspan><tspan fill="#9cdcfe">node</tspan>-><tspan fill="#9cdcfe">left</tspan><tspan fill="#d4d4d4">) {</tspan></text>
+  <text x="90" y="152" fill="#9cdcfe" font-size="12" font-family="Consolas, monospace">node = node-><tspan fill="#9cdcfe">left</tspan>;</text>
+  <text x="70" y="168" fill="#569cd6" font-size="12" font-family="Consolas, monospace">}</text>
+  <text x="70" y="172" fill="#569cd6" font-size="12" font-family="Consolas, monospace">return <tspan fill="#9cdcfe">node</tspan>;</text>
+  <text x="50" y="172" fill="#569cd6" font-size="12" font-family="Consolas, monospace">}</text>
+
+  <!-- Tree walkthrough -->
+  <text x="660" y="80" text-anchor="middle" fill="#2c3e50" font-size="14" font-weight="bold">Example: find_min_(70)</text>
+
+  <circle cx="660" cy="120" r="20" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="660" y="125" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">70</text>
+  <text x="700" y="118" fill="#3498db" font-size="11">start here</text>
+
+  <line x1="644" y1="136" x2="600" y2="168" stroke="#27ae60" stroke-width="2.5"/>
+  <line x1="676" y1="136" x2="720" y2="168" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <circle cx="600" cy="186" r="20" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="600" y="191" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">60</text>
+  <text x="564" y="184" fill="#27ae60" font-size="11">go left</text>
+
+  <circle cx="720" cy="186" r="20" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="720" y="191" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">80</text>
+
+  <line x1="584" y1="202" x2="550" y2="232" stroke="#27ae60" stroke-width="2.5"/>
+
+  <circle cx="550" cy="250" r="20" fill="#27ae60" stroke="#1e8449" stroke-width="2.5"/>
+  <text x="550" y="255" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">55</text>
+  <text x="514" y="248" fill="#27ae60" font-size="11">go left</text>
+  <text x="550" y="284" text-anchor="middle" fill="#27ae60" font-size="12" font-weight="bold">no left child &#x2192; return 55</text>
+
+  <!-- Key point -->
+  <rect x="30" y="260" width="380" height="46" rx="8" fill="#eafaf1" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="220" y="280" text-anchor="middle" fill="#1a5e32" font-size="12" font-weight="bold">Why iterative? No recursion needed &#x2014; just a simple while loop.</text>
+  <text x="220" y="296" text-anchor="middle" fill="#555" font-size="11">O(height) time &#x2014; same as search and insert.</text>
+</svg>
