@@ -221,8 +221,8 @@ Node* BinarySearchTree::remove_(Node* node, int value, bool& removed) {
         Node* successor = find_min_(node->right);
         node->data = successor->data;
 
-        bool dummy = false;
-        node->right = remove_(node->right, successor->data, dummy);
+        bool ignored = false;
+        node->right = remove_(node->right, successor->data, ignored);
     }
 
     return node;
