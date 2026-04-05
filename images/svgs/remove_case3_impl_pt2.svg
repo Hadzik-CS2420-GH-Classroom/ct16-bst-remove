@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <text x="450" y="28" text-anchor="middle" fill="#1a1a1a" font-size="20" font-weight="bold">remove_() Case 3 &#x2014; Two Children (Step 3 &amp; Result)</text>
+  <text x="450" y="48" text-anchor="middle" fill="#777" font-size="12">Delete the original successor from the right subtree, then we&#x2019;re done</text>
+
+  <!-- ================================================================ -->
+  <!-- STEP 3: Delete the successor -->
+  <!-- ================================================================ -->
+  <rect x="30" y="70" width="550" height="28" rx="6" fill="#1e1e1e"/>
+  <text x="45" y="90" fill="#569cd6" font-size="12" font-family="Consolas, monospace">bool <tspan fill="#9cdcfe">ignored</tspan> = false;</text>
+
+  <rect x="30" y="104" width="550" height="28" rx="6" fill="#1e1e1e"/>
+  <text x="45" y="124" fill="#9cdcfe" font-size="12" font-family="Consolas, monospace">node-><tspan fill="#9cdcfe">right</tspan> = <tspan fill="#dcdcaa">remove_</tspan>(node-><tspan fill="#9cdcfe">right</tspan>, successor-><tspan fill="#9cdcfe">data</tspan>, ignored);</text>
+
+  <rect x="30" y="140" width="14" height="14" rx="3" fill="#e74c3c"/>
+  <text x="37" y="151" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">3</text>
+  <text x="50" y="151" fill="#e74c3c" font-size="12" font-weight="bold">Delete the original 60 from the right subtree</text>
+
+  <text x="50" y="172" fill="#555" font-size="11">After Step 2, the tree has TWO nodes with value 60. We recursively remove the</text>
+  <text x="50" y="190" fill="#555" font-size="11">original 60 from the right subtree. Since it&#x2019;s the minimum, it has no left child,</text>
+  <text x="50" y="208" fill="#555" font-size="11">so removing it is always Case 1 (leaf) or Case 2 (one child) &#x2014; easy!</text>
+
+  <!-- Right subtree: before -->
+  <text x="170" y="245" text-anchor="middle" fill="#888" font-size="12">Right subtree before:</text>
+
+  <circle cx="170" cy="280" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="170" y="285" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">70</text>
+
+  <line x1="156" y1="296" x2="120" y2="326" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="184" y1="296" x2="220" y2="326" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <circle cx="120" cy="342" r="16" fill="#e74c3c" stroke="#c0392b" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="120" y="347" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">60</text>
+  <text x="80" y="333" fill="#e74c3c" font-size="9">delete &#x2198;</text>
+
+  <circle cx="220" cy="342" r="16" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="220" y="347" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">80</text>
+
+  <!-- Right subtree: after -->
+  <text x="440" y="245" text-anchor="middle" fill="#888" font-size="12">Right subtree after:</text>
+
+  <circle cx="440" cy="280" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="440" y="285" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">70</text>
+
+  <line x1="426" y1="296" x2="390" y2="326" stroke="#bdc3c7" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="454" y1="296" x2="490" y2="326" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <text x="390" y="345" text-anchor="middle" fill="#bdc3c7" font-size="10">nullptr</text>
+
+  <circle cx="490" cy="342" r="16" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="490" y="347" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">80</text>
+
+  <!-- Why it works callout -->
+  <rect x="600" y="250" width="270" height="55" rx="8" fill="#fff3e0" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="735" y="273" text-anchor="middle" fill="#e65100" font-size="12" font-weight="bold">Why is this always easy?</text>
+  <text x="615" y="293" fill="#555" font-size="11">Successor = min &#x2192; no left child &#x2192; Case 1 or 2</text>
+
+  <!-- ================================================================ -->
+  <!-- FINAL RESULT -->
+  <!-- ================================================================ -->
+  <rect x="30" y="380" width="840" height="190" rx="10" fill="#eafaf1" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="250" y="406" text-anchor="middle" fill="#1a5e32" font-size="14" font-weight="bold">Final Tree After Removing 50</text>
+
+  <!-- Final tree — root -->
+  <circle cx="220" cy="440" r="20" fill="#8e44ad" stroke="#6c3483" stroke-width="2"/>
+  <text x="220" y="445" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">60</text>
+
+  <!-- Edges to level 2 -->
+  <line x1="204" y1="456" x2="140" y2="488" stroke="#bdc3c7" stroke-width="2"/>
+  <line x1="236" y1="456" x2="300" y2="488" stroke="#bdc3c7" stroke-width="2"/>
+
+  <!-- Level 2: 30, 70 -->
+  <circle cx="140" cy="504" r="17" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="140" y="509" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">30</text>
+
+  <circle cx="300" cy="504" r="17" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="300" y="509" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">70</text>
+
+  <!-- Edge 70 → 80 -->
+  <line x1="313" y1="518" x2="345" y2="534" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <!-- Level 3: 80 -->
+  <circle cx="345" cy="540" r="14" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="345" y="545" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold">80</text>
+
+  <!-- BST verification -->
+  <text x="500" y="430" fill="#27ae60" font-size="13" font-weight="bold">BST property preserved &#x2714;</text>
+  <text x="500" y="455" fill="#555" font-size="12">30 &lt; 60 &lt; 70 &lt; 80</text>
+  <text x="500" y="480" fill="#555" font-size="11">&#x2022; 60 &gt; everything in left subtree (30) &#x2714;</text>
+  <text x="500" y="500" fill="#555" font-size="11">&#x2022; 60 &lt; everything in right subtree (70, 80) &#x2714;</text>
+</svg>

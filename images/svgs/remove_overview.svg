@@ -1,109 +1,190 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" font-family="'Segoe UI', Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 860" font-family="'Segoe UI', Arial, sans-serif">
   <rect width="100%" height="100%" fill="white"/>
 
   <text x="450" y="30" text-anchor="middle" fill="#1a1a1a" font-size="22" font-weight="bold">remove_() &#x2014; Three Cases at a Glance</text>
   <text x="450" y="52" text-anchor="middle" fill="#777" font-size="13">The number of children determines the removal strategy</text>
 
-  <!-- Case 1: Leaf -->
-  <rect x="20" y="72" width="270" height="290" rx="10" fill="#fff" stroke="#27ae60" stroke-width="2"/>
-  <rect x="20" y="72" width="270" height="32" rx="10" fill="#27ae60"/>
-  <rect x="20" y="88" width="270" height="16" fill="#27ae60"/>
-  <text x="155" y="94" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Case 1: Leaf (0 children)</text>
+  <!-- ================================================================ -->
+  <!-- CASE 1: LEAF -->
+  <!-- ================================================================ -->
+  <rect x="20" y="72" width="860" height="210" rx="10" fill="#fff" stroke="#27ae60" stroke-width="2"/>
+  <rect x="20" y="72" width="860" height="34" rx="10" fill="#27ae60"/>
+  <rect x="20" y="90" width="860" height="16" fill="#27ae60"/>
+  <text x="450" y="96" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">Case 1: Leaf Node (No Children)</text>
 
-  <text x="40" y="126" fill="#555" font-size="12" font-weight="bold">Strategy:</text>
-  <text x="40" y="144" fill="#555" font-size="12">Delete the node, return nullptr</text>
+  <!-- Strategy text -->
+  <text x="40" y="130" fill="#1a5e32" font-size="13" font-weight="bold">Strategy:</text>
+  <text x="120" y="130" fill="#555" font-size="13">Delete the node and return nullptr to the parent</text>
 
-  <!-- Before -->
-  <text x="85" y="170" text-anchor="middle" fill="#888" font-size="11">Before:</text>
-  <circle cx="85" cy="200" r="16" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
-  <text x="85" y="205" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">30</text>
-  <line x1="73" y1="214" x2="55" y2="238" stroke="#bdc3c7" stroke-width="1.5"/>
-  <circle cx="55" cy="252" r="16" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
-  <text x="55" y="257" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">20</text>
-  <text x="55" y="278" text-anchor="middle" fill="#e74c3c" font-size="10">remove this</text>
+  <!-- Before tree -->
+  <text x="160" y="160" text-anchor="middle" fill="#888" font-size="11">Before: remove(20)</text>
 
-  <!-- Arrow -->
-  <text x="155" y="230" text-anchor="middle" fill="#27ae60" font-size="20">&#x2192;</text>
+  <circle cx="160" cy="195" r="20" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="160" y="200" text-anchor="middle" fill="#2c3e50" font-size="13" font-weight="bold">30</text>
 
-  <!-- After -->
-  <text x="225" y="170" text-anchor="middle" fill="#888" font-size="11">After:</text>
-  <circle cx="225" cy="200" r="16" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
-  <text x="225" y="205" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">30</text>
-  <line x1="213" y1="214" x2="195" y2="238" stroke="#bdc3c7" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <text x="195" y="256" text-anchor="middle" fill="#bdc3c7" font-size="10">nullptr</text>
+  <line x1="144" y1="211" x2="100" y2="240" stroke="#bdc3c7" stroke-width="2"/>
+  <line x1="176" y1="211" x2="220" y2="240" stroke="#bdc3c7" stroke-width="2"/>
 
-  <text x="155" y="330" text-anchor="middle" fill="#27ae60" font-size="12" font-weight="bold">Simplest case</text>
-  <text x="155" y="348" text-anchor="middle" fill="#555" font-size="11">No children to worry about</text>
+  <circle cx="100" cy="255" r="18" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="100" y="260" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">20</text>
+  <text x="70" y="258" fill="#e74c3c" font-size="9" font-weight="bold">&#x2716;</text>
 
-  <!-- Case 2: One Child -->
-  <rect x="310" y="72" width="270" height="290" rx="10" fill="#fff" stroke="#f39c12" stroke-width="2"/>
-  <rect x="310" y="72" width="270" height="32" rx="10" fill="#f39c12"/>
-  <rect x="310" y="88" width="270" height="16" fill="#f39c12"/>
-  <text x="445" y="94" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Case 2: One Child</text>
+  <circle cx="220" cy="255" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="220" y="260" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">40</text>
 
-  <text x="330" y="126" fill="#555" font-size="12" font-weight="bold">Strategy:</text>
-  <text x="330" y="144" fill="#555" font-size="12">Bypass node, return its only child</text>
+  <!-- After tree -->
+  <text x="440" y="160" text-anchor="middle" fill="#888" font-size="11">After:</text>
 
-  <!-- Before -->
-  <text x="375" y="170" text-anchor="middle" fill="#888" font-size="11">Before:</text>
-  <circle cx="375" cy="200" r="16" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
-  <text x="375" y="205" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">30</text>
-  <text x="375" y="223" text-anchor="middle" fill="#e74c3c" font-size="10">remove this</text>
-  <line x1="387" y1="214" x2="405" y2="238" stroke="#bdc3c7" stroke-width="1.5"/>
-  <circle cx="405" cy="252" r="16" fill="#3498db" stroke="#2471a3" stroke-width="1.5"/>
-  <text x="405" y="257" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">40</text>
+  <circle cx="440" cy="195" r="20" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="440" y="200" text-anchor="middle" fill="#2c3e50" font-size="13" font-weight="bold">30</text>
 
-  <!-- Arrow -->
-  <text x="445" y="230" text-anchor="middle" fill="#f39c12" font-size="20">&#x2192;</text>
+  <line x1="424" y1="211" x2="390" y2="240" stroke="#bdc3c7" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="456" y1="211" x2="490" y2="240" stroke="#bdc3c7" stroke-width="2"/>
 
-  <!-- After -->
-  <text x="515" y="170" text-anchor="middle" fill="#888" font-size="11">After:</text>
-  <circle cx="515" cy="200" r="16" fill="#3498db" stroke="#2471a3" stroke-width="1.5"/>
-  <text x="515" y="205" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">40</text>
-  <text x="515" y="223" text-anchor="middle" fill="#3498db" font-size="10">takes parent&#x2019;s spot</text>
+  <text x="390" y="260" text-anchor="middle" fill="#bdc3c7" font-size="10">nullptr</text>
 
-  <text x="445" y="330" text-anchor="middle" fill="#f39c12" font-size="12" font-weight="bold">Child gets promoted</text>
-  <text x="445" y="348" text-anchor="middle" fill="#555" font-size="11">Like removing a link in a chain</text>
+  <circle cx="490" cy="255" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="490" y="260" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">40</text>
 
-  <!-- Case 3: Two Children -->
-  <rect x="600" y="72" width="280" height="290" rx="10" fill="#fff" stroke="#e74c3c" stroke-width="2"/>
-  <rect x="600" y="72" width="280" height="32" rx="10" fill="#e74c3c"/>
-  <rect x="600" y="88" width="280" height="16" fill="#e74c3c"/>
-  <text x="740" y="94" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Case 3: Two Children</text>
+  <!-- Explanation -->
+  <rect x="580" y="150" width="280" height="110" rx="8" fill="#eafaf1" stroke="#27ae60" stroke-width="1"/>
+  <text x="720" y="175" text-anchor="middle" fill="#1a5e32" font-size="12" font-weight="bold">Simplest case</text>
+  <text x="600" y="198" fill="#555" font-size="11">&#x2022; No children to reconnect</text>
+  <text x="600" y="218" fill="#555" font-size="11">&#x2022; Just delete and set parent&#x2019;s</text>
+  <text x="610" y="234" fill="#555" font-size="11">pointer to nullptr</text>
+  <text x="600" y="254" fill="#888" font-size="10" font-style="italic">Think: plucking a leaf off a branch</text>
 
-  <text x="620" y="126" fill="#555" font-size="12" font-weight="bold">Strategy:</text>
-  <text x="620" y="144" fill="#555" font-size="12">Copy in-order successor, delete it</text>
+  <!-- ================================================================ -->
+  <!-- CASE 2: ONE CHILD -->
+  <!-- ================================================================ -->
+  <rect x="20" y="298" width="860" height="260" rx="10" fill="#fff" stroke="#f39c12" stroke-width="2"/>
+  <rect x="20" y="298" width="860" height="34" rx="10" fill="#f39c12"/>
+  <rect x="20" y="316" width="860" height="16" fill="#f39c12"/>
+  <text x="450" y="322" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">Case 2: One Child</text>
 
-  <!-- Before -->
-  <text x="670" y="170" text-anchor="middle" fill="#888" font-size="11">Before:</text>
-  <circle cx="670" cy="200" r="16" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
-  <text x="670" y="205" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">50</text>
-  <line x1="658" y1="214" x2="640" y2="238" stroke="#bdc3c7" stroke-width="1.5"/>
-  <line x1="682" y1="214" x2="700" y2="238" stroke="#bdc3c7" stroke-width="1.5"/>
-  <circle cx="640" cy="252" r="14" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
-  <text x="640" y="257" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold">30</text>
-  <circle cx="700" cy="252" r="14" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
-  <text x="700" y="257" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold">70</text>
-  <line x1="694" y1="264" x2="680" y2="284" stroke="#8e44ad" stroke-width="2"/>
-  <circle cx="680" cy="296" r="14" fill="#8e44ad" stroke="#6c3483" stroke-width="2"/>
-  <text x="680" y="301" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">60</text>
-  <text x="680" y="318" text-anchor="middle" fill="#8e44ad" font-size="9">successor</text>
+  <!-- Strategy text -->
+  <text x="40" y="356" fill="#e65100" font-size="13" font-weight="bold">Strategy:</text>
+  <text x="120" y="356" fill="#555" font-size="13">Bypass the node &#x2014; return its only child so the parent adopts it</text>
 
-  <!-- Arrow -->
-  <text x="740" y="230" text-anchor="middle" fill="#e74c3c" font-size="20">&#x2192;</text>
+  <!-- Before tree -->
+  <text x="140" y="386" text-anchor="middle" fill="#888" font-size="11">Before: remove(30)</text>
 
-  <!-- After -->
-  <text x="810" y="170" text-anchor="middle" fill="#888" font-size="11">After:</text>
-  <circle cx="810" cy="200" r="16" fill="#8e44ad" stroke="#6c3483" stroke-width="2"/>
-  <text x="810" y="205" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">60</text>
-  <text x="810" y="223" text-anchor="middle" fill="#8e44ad" font-size="10">copied here</text>
-  <line x1="798" y1="214" x2="780" y2="238" stroke="#bdc3c7" stroke-width="1.5"/>
-  <line x1="822" y1="214" x2="840" y2="238" stroke="#bdc3c7" stroke-width="1.5"/>
-  <circle cx="780" cy="252" r="14" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
-  <text x="780" y="257" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold">30</text>
-  <circle cx="840" cy="252" r="14" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
-  <text x="840" y="257" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold">70</text>
+  <circle cx="140" cy="418" r="20" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="140" y="423" text-anchor="middle" fill="#2c3e50" font-size="13" font-weight="bold">50</text>
 
-  <text x="740" y="342" text-anchor="middle" fill="#e74c3c" font-size="12" font-weight="bold">Hardest case</text>
-  <text x="740" y="358" text-anchor="middle" fill="#555" font-size="11">Successor replaces, then gets deleted</text>
+  <line x1="124" y1="434" x2="80" y2="464" stroke="#bdc3c7" stroke-width="2"/>
+  <line x1="156" y1="434" x2="200" y2="464" stroke="#bdc3c7" stroke-width="2"/>
+
+  <circle cx="80" cy="480" r="18" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="80" y="485" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">30</text>
+  <text x="50" y="483" fill="#e74c3c" font-size="9" font-weight="bold">&#x2716;</text>
+
+  <circle cx="200" cy="480" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="200" y="485" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">70</text>
+
+  <!-- 30's only child — below 30 like a proper tree -->
+  <line x1="92" y1="496" x2="110" y2="522" stroke="#3498db" stroke-width="2.5"/>
+  <circle cx="110" cy="538" r="16" fill="#3498db" stroke="#2471a3" stroke-width="2"/>
+  <text x="110" y="543" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">40</text>
+  <text x="140" y="541" fill="#3498db" font-size="9">only child</text>
+
+  <!-- After tree -->
+  <text x="420" y="386" text-anchor="middle" fill="#888" font-size="11">After:</text>
+
+  <circle cx="420" cy="418" r="20" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="420" y="423" text-anchor="middle" fill="#2c3e50" font-size="13" font-weight="bold">50</text>
+
+  <line x1="404" y1="434" x2="360" y2="464" stroke="#3498db" stroke-width="2.5"/>
+  <line x1="436" y1="434" x2="480" y2="464" stroke="#bdc3c7" stroke-width="2"/>
+
+  <circle cx="360" cy="480" r="18" fill="#3498db" stroke="#2471a3" stroke-width="2"/>
+  <text x="360" y="485" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">40</text>
+  <text x="360" y="504" text-anchor="middle" fill="#3498db" font-size="9">promoted</text>
+
+  <circle cx="480" cy="480" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="480" y="485" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">70</text>
+
+  <!-- Explanation -->
+  <rect x="580" y="375" width="280" height="165" rx="8" fill="#fff3e0" stroke="#f39c12" stroke-width="1"/>
+  <text x="720" y="400" text-anchor="middle" fill="#e65100" font-size="12" font-weight="bold">Child gets promoted</text>
+  <text x="600" y="424" fill="#555" font-size="11">&#x2022; Delete the node (30)</text>
+  <text x="600" y="444" fill="#555" font-size="11">&#x2022; Return its only child (40)</text>
+  <text x="600" y="464" fill="#555" font-size="11">&#x2022; Parent (50) adopts the grandchild</text>
+  <text x="600" y="484" fill="#555" font-size="11">&#x2022; Works the same whether it&#x2019;s a</text>
+  <text x="610" y="500" fill="#555" font-size="11">left child or right child</text>
+  <text x="600" y="530" fill="#888" font-size="10" font-style="italic">Think: removing a link from a chain</text>
+
+  <!-- ================================================================ -->
+  <!-- CASE 3: TWO CHILDREN -->
+  <!-- ================================================================ -->
+  <rect x="20" y="574" width="860" height="270" rx="10" fill="#fff" stroke="#e74c3c" stroke-width="2"/>
+  <rect x="20" y="574" width="860" height="34" rx="10" fill="#e74c3c"/>
+  <rect x="20" y="592" width="860" height="16" fill="#e74c3c"/>
+  <text x="450" y="598" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">Case 3: Two Children (The Hard One)</text>
+
+  <!-- Strategy text -->
+  <text x="40" y="632" fill="#922b21" font-size="13" font-weight="bold">Strategy:</text>
+  <text x="120" y="632" fill="#555" font-size="13">Find the in-order successor, copy its value in, then delete the successor</text>
+
+  <!-- Before tree -->
+  <text x="160" y="658" text-anchor="middle" fill="#888" font-size="11">Before: remove(50)</text>
+
+  <circle cx="160" cy="692" r="20" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="160" y="697" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">50</text>
+  <text x="130" y="690" fill="#e74c3c" font-size="9" font-weight="bold">&#x2716;</text>
+
+  <line x1="144" y1="708" x2="100" y2="738" stroke="#bdc3c7" stroke-width="2"/>
+  <line x1="176" y1="708" x2="240" y2="738" stroke="#bdc3c7" stroke-width="2"/>
+
+  <circle cx="100" cy="754" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="100" y="759" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">30</text>
+
+  <circle cx="240" cy="754" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="240" y="759" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">70</text>
+
+  <!-- Successor -->
+  <line x1="226" y1="768" x2="200" y2="792" stroke="#8e44ad" stroke-width="2.5"/>
+  <line x1="254" y1="768" x2="280" y2="792" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <circle cx="200" cy="806" r="16" fill="#8e44ad" stroke="#6c3483" stroke-width="2"/>
+  <text x="200" y="811" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">60</text>
+  <text x="200" y="832" text-anchor="middle" fill="#8e44ad" font-size="9" font-weight="bold">successor</text>
+
+  <circle cx="280" cy="806" r="16" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="280" y="811" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">80</text>
+
+  <!-- After tree -->
+  <text x="490" y="658" text-anchor="middle" fill="#888" font-size="11">After:</text>
+
+  <circle cx="490" cy="692" r="20" fill="#8e44ad" stroke="#6c3483" stroke-width="2"/>
+  <text x="490" y="697" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">60</text>
+  <text x="490" y="670" text-anchor="middle" fill="#8e44ad" font-size="9">value copied here</text>
+
+  <line x1="474" y1="708" x2="430" y2="738" stroke="#bdc3c7" stroke-width="2"/>
+  <line x1="506" y1="708" x2="550" y2="738" stroke="#bdc3c7" stroke-width="2"/>
+
+  <circle cx="430" cy="754" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="430" y="759" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">30</text>
+
+  <circle cx="550" cy="754" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="550" y="759" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">70</text>
+
+  <line x1="564" y1="768" x2="590" y2="792" stroke="#bdc3c7" stroke-width="1.5"/>
+  <circle cx="590" cy="806" r="16" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="590" y="811" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">80</text>
+
+  <!-- Explanation -->
+  <rect x="640" y="650" width="220" height="180" rx="8" fill="#fdedec" stroke="#e74c3c" stroke-width="1"/>
+  <text x="750" y="675" text-anchor="middle" fill="#922b21" font-size="12" font-weight="bold">The hardest case</text>
+
+  <text x="655" y="700" fill="#555" font-size="11">1. Find successor:</text>
+  <text x="665" y="716" fill="#555" font-size="10">find_min_(node&#x2192;right) = 60</text>
+
+  <text x="655" y="740" fill="#555" font-size="11">2. Copy its value into node:</text>
+  <text x="665" y="756" fill="#555" font-size="10">node&#x2192;data = 60</text>
+
+  <text x="655" y="780" fill="#555" font-size="11">3. Delete the original 60:</text>
+  <text x="665" y="796" fill="#555" font-size="10">remove_(right, 60) &#x2192; Case 1</text>
+
+  <text x="655" y="822" fill="#888" font-size="10" font-style="italic">Node stays, value changes</text>
 </svg>

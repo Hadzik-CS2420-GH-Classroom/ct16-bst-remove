@@ -1,54 +1,92 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" font-family="'Segoe UI', Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="'Segoe UI', Arial, sans-serif">
   <rect width="100%" height="100%" fill="white"/>
 
   <text x="450" y="28" text-anchor="middle" fill="#1a1a1a" font-size="20" font-weight="bold">remove_() Case 2 &#x2014; One Child</text>
   <text x="450" y="48" text-anchor="middle" fill="#777" font-size="12">Bypass the node &#x2014; return its only child so the parent adopts it</text>
 
-  <!-- Code -->
-  <rect x="30" y="66" width="420" height="130" rx="8" fill="#1e1e1e"/>
-  <text x="50" y="88" fill="#6a9955" font-size="12" font-family="Consolas, monospace">// Case 2a: Only a right child</text>
-  <text x="50" y="108" fill="#569cd6" font-size="12" font-family="Consolas, monospace">if <tspan fill="#d4d4d4">(!</tspan><tspan fill="#9cdcfe">node</tspan>-><tspan fill="#9cdcfe">left</tspan><tspan fill="#d4d4d4">) {</tspan></text>
-  <text x="70" y="128" fill="#4ec9b0" font-size="12" font-family="Consolas, monospace">Node* <tspan fill="#9cdcfe">child</tspan> = <tspan fill="#9cdcfe">node</tspan>-><tspan fill="#9cdcfe">right</tspan>;</text>
-  <text x="70" y="148" fill="#569cd6" font-size="12" font-family="Consolas, monospace">delete <tspan fill="#9cdcfe">node</tspan>;</text>
-  <text x="70" y="168" fill="#569cd6" font-size="12" font-family="Consolas, monospace">return <tspan fill="#9cdcfe">child</tspan>;  <tspan fill="#6a9955">// child takes parent&#x2019;s spot</tspan></text>
-  <text x="50" y="188" fill="#569cd6" font-size="12" font-family="Consolas, monospace">}</text>
+  <!-- ================================================================ -->
+  <!-- STEP-BY-STEP: code on left, tree state on right -->
+  <!-- ================================================================ -->
 
-  <!-- Example: right child only -->
-  <text x="650" y="80" text-anchor="middle" fill="#888" font-size="12">Example: remove(30) &#x2014; has only right child</text>
+  <!-- Step 1: Check — only has right child -->
+  <rect x="30" y="70" width="500" height="34" rx="6" fill="#1e1e1e"/>
+  <text x="45" y="92" fill="#6a9955" font-size="12" font-family="Consolas, monospace">// Case 2a: Only a right child</text>
+  <text x="350" y="92" fill="#569cd6" font-size="12" font-family="Consolas, monospace">if <tspan fill="#d4d4d4">(!</tspan><tspan fill="#9cdcfe">node</tspan>-><tspan fill="#9cdcfe">left</tspan><tspan fill="#d4d4d4">)</tspan></text>
 
-  <!-- Before -->
-  <text x="570" y="110" text-anchor="middle" fill="#888" font-size="11">Before:</text>
-  <circle cx="570" cy="140" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
-  <text x="570" y="145" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">50</text>
-  <line x1="556" y1="154" x2="520" y2="180" stroke="#bdc3c7" stroke-width="1.5"/>
-  <circle cx="520" cy="198" r="18" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
-  <text x="520" y="203" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">30</text>
-  <text x="495" y="200" fill="#e74c3c" font-size="10">del</text>
-  <line x1="534" y1="212" x2="556" y2="238" stroke="#f39c12" stroke-width="2.5"/>
-  <circle cx="556" cy="256" r="18" fill="#3498db" stroke="#2471a3" stroke-width="2"/>
-  <text x="556" y="261" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">40</text>
-  <text x="580" y="258" fill="#3498db" font-size="10">child</text>
+  <!-- Tree: initial state -->
+  <text x="720" y="72" text-anchor="middle" fill="#888" font-size="11">remove(30) from this tree:</text>
 
-  <!-- Arrow -->
-  <text x="650" y="200" text-anchor="middle" fill="#f39c12" font-size="22">&#x2192;</text>
+  <circle cx="680" cy="108" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="680" y="113" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">50</text>
 
-  <!-- After -->
-  <text x="750" y="110" text-anchor="middle" fill="#888" font-size="11">After:</text>
-  <circle cx="750" cy="140" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
-  <text x="750" y="145" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">50</text>
-  <line x1="736" y1="154" x2="700" y2="180" stroke="#3498db" stroke-width="2"/>
-  <circle cx="700" cy="198" r="18" fill="#3498db" stroke="#2471a3" stroke-width="2"/>
-  <text x="700" y="203" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">40</text>
-  <text x="700" y="224" text-anchor="middle" fill="#3498db" font-size="10">promoted</text>
+  <line x1="666" y1="122" x2="630" y2="152" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="694" y1="122" x2="730" y2="152" stroke="#bdc3c7" stroke-width="1.5"/>
 
-  <!-- Also works for left child -->
-  <rect x="30" y="220" width="420" height="80" rx="8" fill="#f8f9fa" stroke="#bdc3c7" stroke-width="1"/>
-  <text x="240" y="244" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">Case 2b: Only a left child (mirror)</text>
-  <rect x="50" y="256" width="380" height="34" rx="6" fill="#1e1e1e"/>
-  <text x="65" y="278" fill="#569cd6" font-size="11" font-family="Consolas, monospace">if <tspan fill="#d4d4d4">(!</tspan><tspan fill="#9cdcfe">node</tspan>-><tspan fill="#9cdcfe">right</tspan><tspan fill="#d4d4d4">) {</tspan> <tspan fill="#6a9955">// same logic, return node->left</tspan></text>
+  <circle cx="630" cy="168" r="18" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="630" y="173" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">30</text>
+  <text x="580" y="156" fill="#e74c3c" font-size="9">node &#x2198;</text>
+
+  <circle cx="730" cy="168" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="730" y="173" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">70</text>
+
+  <line x1="644" y1="182" x2="666" y2="210" stroke="#3498db" stroke-width="2.5"/>
+
+  <circle cx="666" cy="226" r="16" fill="#3498db" stroke="#2471a3" stroke-width="2"/>
+  <text x="666" y="231" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">40</text>
+
+  <!-- Annotation: 30 has no left, only right (40) -->
+  <text x="785" y="170" fill="#555" font-size="10">30 has no left child &#x2714;</text>
+  <text x="785" y="185" fill="#555" font-size="10">only child is 40 (right)</text>
+
+  <!-- Step 2: Save the child -->
+  <rect x="30" y="120" width="500" height="28" rx="6" fill="#1e1e1e"/>
+  <text x="45" y="140" fill="#4ec9b0" font-size="12" font-family="Consolas, monospace">Node* <tspan fill="#9cdcfe">child</tspan> = <tspan fill="#9cdcfe">node</tspan>-><tspan fill="#9cdcfe">right</tspan>;  <tspan fill="#6a9955">// child = 40</tspan></text>
+
+  <!-- Step 2 annotation -->
+  <rect x="30" y="150" width="14" height="14" rx="3" fill="#3498db"/>
+  <text x="37" y="161" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">1</text>
+  <text x="50" y="161" fill="#3498db" font-size="11">Save pointer to the only child (40)</text>
+
+  <!-- Step 3: Delete the node -->
+  <rect x="30" y="178" width="500" height="28" rx="6" fill="#1e1e1e"/>
+  <text x="45" y="198" fill="#569cd6" font-size="12" font-family="Consolas, monospace">delete <tspan fill="#9cdcfe">node</tspan>;  <tspan fill="#6a9955">// free the memory for 30</tspan></text>
+
+  <!-- Step 3 annotation -->
+  <rect x="30" y="208" width="14" height="14" rx="3" fill="#e74c3c"/>
+  <text x="37" y="219" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">2</text>
+  <text x="50" y="219" fill="#e74c3c" font-size="11">Delete node 30 (free its memory)</text>
+
+  <!-- Step 4: Return child -->
+  <rect x="30" y="236" width="500" height="28" rx="6" fill="#1e1e1e"/>
+  <text x="45" y="256" fill="#569cd6" font-size="12" font-family="Consolas, monospace">return <tspan fill="#9cdcfe">child</tspan>;  <tspan fill="#6a9955">// parent (50) now points to 40</tspan></text>
+
+  <!-- Step 4 annotation -->
+  <rect x="30" y="266" width="14" height="14" rx="3" fill="#27ae60"/>
+  <text x="37" y="277" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">3</text>
+  <text x="50" y="277" fill="#27ae60" font-size="11">Return 40 &#x2014; parent&#x2019;s pointer now connects to 40 directly</text>
+
+  <!-- Result tree -->
+  <text x="720" y="260" text-anchor="middle" fill="#888" font-size="11">Result:</text>
+
+  <circle cx="680" cy="290" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="680" y="295" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">50</text>
+
+  <line x1="666" y1="304" x2="630" y2="330" stroke="#3498db" stroke-width="2.5"/>
+  <line x1="694" y1="304" x2="730" y2="330" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <circle cx="630" cy="346" r="18" fill="#3498db" stroke="#2471a3" stroke-width="2"/>
+  <text x="630" y="351" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">40</text>
+  <text x="630" y="372" text-anchor="middle" fill="#3498db" font-size="9">promoted</text>
+
+  <circle cx="730" cy="346" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="730" y="351" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">70</text>
+
+  <!-- Case 2b note -->
+  <rect x="30" y="300" width="500" height="34" rx="6" fill="#f8f9fa" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="280" y="322" text-anchor="middle" fill="#2c3e50" font-size="11">Case 2b (only a left child) is the mirror: <tspan fill="#569cd6" font-family="Consolas, monospace">if (!node->right) return node->left;</tspan></text>
 
   <!-- Key insight -->
-  <rect x="30" y="320" width="840" height="66" rx="10" fill="#fff3e0" stroke="#f39c12" stroke-width="1.5"/>
-  <text x="450" y="344" text-anchor="middle" fill="#e65100" font-size="13" font-weight="bold">Think of it like removing a link from a chain</text>
-  <text x="50" y="366" fill="#555" font-size="12">The grandparent&#x2019;s pointer skips over the deleted node and connects directly to the grandchild. No data is copied &#x2014; just pointer reassignment.</text>
+  <rect x="30" y="348" width="500" height="56" rx="8" fill="#fff3e0" stroke="#f39c12" stroke-width="1.5"/>
+  <text x="280" y="370" text-anchor="middle" fill="#e65100" font-size="12" font-weight="bold">Think: removing a link from a chain</text>
+  <text x="45" y="392" fill="#555" font-size="11">The parent skips over the deleted node and connects directly to the grandchild. No data copied.</text>
 </svg>

@@ -1,4 +1,4 @@
-# CT15 -- Implementation Diagrams
+# CT16 -- Implementation Diagrams
 
 Code-block diagrams referenced from `BinarySearchTree.cpp`.
 
@@ -25,7 +25,14 @@ Code-block diagrams referenced from `BinarySearchTree.cpp`.
 
 ---
 
-## 4. remove_() Case 3 -- Two Children (Step by Step)
-*`BinarySearchTree.cpp::remove_()` -- find successor, copy value, delete successor*
+## 4. remove_() Case 3 -- Two Children (Steps 1 & 2)
+*`BinarySearchTree.cpp::remove_()` -- find the in-order successor, copy its value into the node*
 
-![Remove Case 3: Two Children](svgs/remove_case3_impl.svg)
+![Remove Case 3: Steps 1 & 2](svgs/remove_case3_impl.svg)
+
+---
+
+## 5. remove_() Case 3 -- Two Children (Step 3 & Result)
+*`BinarySearchTree.cpp::remove_()` -- delete the original successor, final tree*
+
+![Remove Case 3: Step 3 & Result](svgs/remove_case3_impl_pt2.svg)

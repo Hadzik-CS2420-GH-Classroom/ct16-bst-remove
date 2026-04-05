@@ -1,52 +1,96 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" font-family="'Segoe UI', Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="'Segoe UI', Arial, sans-serif">
   <rect width="100%" height="100%" fill="white"/>
 
+  <defs>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e67e22"/>
+    </marker>
+  </defs>
+
   <text x="450" y="30" text-anchor="middle" fill="#1a1a1a" font-size="22" font-weight="bold">find_min_() &#x2014; Finding the Minimum in a Subtree</text>
-  <text x="450" y="52" text-anchor="middle" fill="#777" font-size="13">The minimum is always the leftmost node &#x2014; just keep walking left</text>
+  <text x="450" y="52" text-anchor="middle" fill="#777" font-size="13">Called on the RIGHT subtree to find the in-order successor for remove Case 3</text>
 
-  <!-- Tree -->
-  <circle cx="450" cy="110" r="22" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="450" y="115" text-anchor="middle" fill="#2c3e50" font-size="13" font-weight="bold">50</text>
+  <!-- ================================================================ -->
+  <!-- THE TREE — centered, left subtree greyed out -->
+  <!-- ================================================================ -->
 
-  <line x1="432" y1="128" x2="350" y2="168" stroke="#bdc3c7" stroke-width="2"/>
-  <line x1="468" y1="128" x2="550" y2="168" stroke="#bdc3c7" stroke-width="2"/>
+  <!-- Node 50 — being removed -->
+  <circle cx="450" cy="120" r="24" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="450" y="125" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">50</text>
+  <text x="450" y="92" text-anchor="middle" fill="#e74c3c" font-size="10" font-weight="bold">&#x2716; remove this node</text>
 
-  <circle cx="350" cy="190" r="22" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="350" y="195" text-anchor="middle" fill="#2c3e50" font-size="13" font-weight="bold">30</text>
+  <!-- Left edge — greyed out -->
+  <line x1="430" y1="140" x2="280" y2="195" stroke="#ddd" stroke-width="2"/>
+  <!-- Right edge — highlighted -->
+  <line x1="470" y1="140" x2="630" y2="202" stroke="#e67e22" stroke-width="3"/>
 
-  <circle cx="550" cy="190" r="22" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="550" y="195" text-anchor="middle" fill="#2c3e50" font-size="13" font-weight="bold">70</text>
+  <!-- LEFT SUBTREE — greyed out -->
+  <circle cx="280" cy="215" r="20" fill="#f0f0f0" stroke="#ddd" stroke-width="1.5"/>
+  <text x="280" y="220" text-anchor="middle" fill="#bbb" font-size="13" font-weight="bold">30</text>
 
-  <line x1="334" y1="208" x2="280" y2="248" stroke="#27ae60" stroke-width="3"/>
-  <line x1="366" y1="208" x2="420" y2="248" stroke="#bdc3c7" stroke-width="2"/>
-  <line x1="534" y1="208" x2="490" y2="248" stroke="#27ae60" stroke-width="3"/>
-  <line x1="566" y1="208" x2="620" y2="248" stroke="#bdc3c7" stroke-width="2"/>
+  <line x1="266" y1="233" x2="230" y2="265" stroke="#ddd" stroke-width="1.5"/>
+  <line x1="294" y1="233" x2="330" y2="265" stroke="#ddd" stroke-width="1.5"/>
 
-  <circle cx="280" cy="270" r="22" fill="#27ae60" stroke="#1e8449" stroke-width="2.5"/>
-  <text x="280" y="275" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">20</text>
-  <text x="280" y="305" text-anchor="middle" fill="#27ae60" font-size="12" font-weight="bold">&#x2190; min of whole tree</text>
+  <circle cx="230" cy="282" r="16" fill="#f0f0f0" stroke="#ddd" stroke-width="1"/>
+  <text x="230" y="287" text-anchor="middle" fill="#bbb" font-size="11" font-weight="bold">20</text>
 
-  <circle cx="420" cy="270" r="22" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="420" y="275" text-anchor="middle" fill="#2c3e50" font-size="13" font-weight="bold">40</text>
+  <circle cx="330" cy="282" r="16" fill="#f0f0f0" stroke="#ddd" stroke-width="1"/>
+  <text x="330" y="287" text-anchor="middle" fill="#bbb" font-size="11" font-weight="bold">40</text>
 
-  <circle cx="490" cy="270" r="22" fill="#e67e22" stroke="#d68910" stroke-width="2.5"/>
-  <text x="490" y="275" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">60</text>
-  <text x="490" y="305" text-anchor="middle" fill="#e67e22" font-size="12" font-weight="bold">&#x2190; min of right subtree</text>
+  <text x="280" y="318" text-anchor="middle" fill="#ccc" font-size="10" font-style="italic">left subtree &#x2014; not searched</text>
 
-  <circle cx="620" cy="270" r="22" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="2"/>
-  <text x="620" y="275" text-anchor="middle" fill="#2c3e50" font-size="13" font-weight="bold">80</text>
+  <!-- RIGHT SUBTREE — highlighted with dashed box -->
+  <rect x="545" y="172" width="220" height="180" rx="10" fill="none" stroke="#e67e22" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="655" y="188" text-anchor="middle" fill="#e67e22" font-size="10" font-weight="bold">node&#x2192;right subtree</text>
 
-  <!-- Green path arrow for whole tree -->
-  <text x="80" y="115" fill="#27ae60" font-size="13" font-weight="bold">find_min_(root_):</text>
-  <text x="80" y="135" fill="#555" font-size="12">50 &#x2192; 30 &#x2192; 20 (no left child &#x2192; done)</text>
+  <!-- Node 70 -->
+  <circle cx="630" cy="222" r="20" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="630" y="227" text-anchor="middle" fill="#2c3e50" font-size="13" font-weight="bold">70</text>
 
-  <!-- Orange path for right subtree -->
-  <text x="680" y="115" fill="#e67e22" font-size="13" font-weight="bold">find_min_(node&#x2192;right):</text>
-  <text x="680" y="135" fill="#555" font-size="12">70 &#x2192; 60 (no left child &#x2192; done)</text>
-  <text x="680" y="155" fill="#555" font-size="12" font-style="italic">Used by remove_ Case 3</text>
+  <!-- Edge 70 → 60 — walk path -->
+  <line x1="614" y1="238" x2="588" y2="272" stroke="#e67e22" stroke-width="3"/>
+  <!-- Edge 70 → 80 -->
+  <line x1="646" y1="238" x2="700" y2="272" stroke="#bdc3c7" stroke-width="1.5"/>
 
-  <!-- Key point -->
-  <rect x="80" y="170" width="150" height="50" rx="8" fill="#eafaf1" stroke="#27ae60" stroke-width="1.5"/>
-  <text x="155" y="192" text-anchor="middle" fill="#1a5e32" font-size="12" font-weight="bold">Always walk left</text>
-  <text x="155" y="208" text-anchor="middle" fill="#555" font-size="11">O(height) time</text>
+  <!-- Node 60 — the answer -->
+  <circle cx="588" cy="290" r="20" fill="#27ae60" stroke="#1e8449" stroke-width="2.5"/>
+  <text x="588" y="295" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">60</text>
+
+  <!-- Node 80 -->
+  <circle cx="700" cy="290" r="16" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="700" y="295" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">80</text>
+
+  <!-- Walk annotations — positioned to avoid collisions -->
+  <text x="656" y="220" fill="#e67e22" font-size="10" font-weight="bold">&#x2190; start</text>
+
+  <text x="620" y="262" fill="#e67e22" font-size="10" font-weight="bold">&#x2199; go left</text>
+
+  <text x="655" y="332" text-anchor="middle" fill="#27ae60" font-size="10" font-weight="bold">no left child &#x2192; 60 is the min!</text>
+
+  <!-- ================================================================ -->
+  <!-- BOTTOM — explanation panels side by side -->
+  <!-- ================================================================ -->
+
+  <!-- How it works panel -->
+  <rect x="40" y="350" width="380" height="155" rx="10" fill="#fff3e0" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="230" y="378" text-anchor="middle" fill="#e65100" font-size="14" font-weight="bold">How find_min_() works:</text>
+
+  <text x="60" y="404" fill="#555" font-size="12">1. Start at node&#x2192;right (start at 70)</text>
+  <text x="60" y="426" fill="#555" font-size="12">2. Has a left child? Yes &#x2192; walk left to 60</text>
+  <text x="60" y="448" fill="#555" font-size="12">3. Has a left child? No &#x2192; stop</text>
+  <text x="60" y="474" fill="#27ae60" font-size="13" font-weight="bold">4. Return 60 &#x2014; it&#x2019;s the minimum!</text>
+
+  <text x="60" y="498" fill="#888" font-size="10" font-style="italic">The leftmost node is always the smallest in any BST subtree</text>
+
+  <!-- Why + code panel -->
+  <rect x="460" y="350" width="420" height="155" rx="10" fill="#eafaf1" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="670" y="378" text-anchor="middle" fill="#1a5e32" font-size="14" font-weight="bold">Why start at node&#x2192;right?</text>
+
+  <text x="480" y="404" fill="#555" font-size="12">We need the smallest value that is LARGER than 50.</text>
+  <text x="480" y="424" fill="#555" font-size="12">Everything in the right subtree is &gt; 50 (BST property).</text>
+  <text x="480" y="444" fill="#27ae60" font-size="12" font-weight="bold">The minimum of the right subtree is the perfect fit.</text>
+
+  <!-- Code -->
+  <rect x="480" y="462" width="380" height="32" rx="4" fill="#1e1e1e"/>
+  <text x="495" y="483" fill="#c586c0" font-size="11" font-family="Consolas, monospace">while <tspan fill="#9cdcfe">(node->left)</tspan> <tspan fill="#9cdcfe">node</tspan> = <tspan fill="#9cdcfe">node</tspan>-><tspan fill="#9cdcfe">left</tspan>;</text>
 </svg>
