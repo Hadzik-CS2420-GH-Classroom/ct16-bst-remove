@@ -2,16 +2,13 @@
 // CT15: Binary Search Tree — Day 2 (Remove) — Demo Driver
 // =============================================================================
 //
-// This demo builds on CT14. The BST (insert, search, traversals, height)
+// This demo builds on CT15. The BST (insert, search, traversals, height)
 // is already working. Today we implement find_min_ and remove.
 //
-// Tree used (insert order: 50, 30, 70, 20, 40, 60, 80):
+// ? SEE DIAGRAM: images/main_diagrams.md #1 — the demo tree and how it changes
 //
-//              50
-//            /    \
-//          30      70
-//         /  \    /  \
-//        20  40  60   80
+// Starting tree (insert order: 50, 30, 70, 20, 40, 60, 80):
+//   root = 50, left subtree = {20, 30, 40}, right subtree = {60, 70, 80}
 //
 
 #include "BinarySearchTree.h"

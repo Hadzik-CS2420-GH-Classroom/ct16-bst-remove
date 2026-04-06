@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <text x="450" y="28" text-anchor="middle" fill="#1a1a1a" font-size="20" font-weight="bold">remove_() &#x2014; Step 1: Find the Node</text>
+  <text x="450" y="48" text-anchor="middle" fill="#777" font-size="12">Before we can remove, we have to find where the value lives in the tree</text>
+
+  <!-- Code: base case -->
+  <rect x="30" y="70" width="500" height="28" rx="6" fill="#1e1e1e"/>
+  <text x="45" y="90" fill="#569cd6" font-size="12" font-family="Consolas, monospace">if <tspan fill="#d4d4d4">(!</tspan><tspan fill="#9cdcfe">node</tspan><tspan fill="#d4d4d4">)</tspan> return <tspan fill="#569cd6">nullptr</tspan>;  <tspan fill="#6a9955">// base case: value not in tree</tspan></text>
+
+  <rect x="30" y="102" width="14" height="14" rx="3" fill="#7f8c8d"/>
+  <text x="37" y="113" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">0</text>
+  <text x="50" y="113" fill="#7f8c8d" font-size="11" font-weight="bold">Base case: hit nullptr &#x2014; value doesn&#x2019;t exist</text>
+  <text x="50" y="129" fill="#555" font-size="11">We walked off the tree. Return nullptr (nothing changes) and removed stays false.</text>
+
+  <!-- Code: go left -->
+  <rect x="30" y="150" width="500" height="28" rx="6" fill="#1e1e1e"/>
+  <text x="45" y="170" fill="#569cd6" font-size="12" font-family="Consolas, monospace">if <tspan fill="#d4d4d4">(</tspan><tspan fill="#9cdcfe">value</tspan> &lt; <tspan fill="#9cdcfe">node</tspan>-><tspan fill="#9cdcfe">data</tspan><tspan fill="#d4d4d4">)</tspan>  node-><tspan fill="#9cdcfe">left</tspan> = <tspan fill="#dcdcaa">remove_</tspan>(node-><tspan fill="#9cdcfe">left</tspan>, ...);</text>
+
+  <rect x="30" y="182" width="14" height="14" rx="3" fill="#3498db"/>
+  <text x="37" y="193" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">1</text>
+  <text x="50" y="193" fill="#3498db" font-size="11" font-weight="bold">Value is smaller &#x2192; go left</text>
+  <text x="50" y="209" fill="#555" font-size="11">The value we&#x2019;re looking for is less than this node, so it must be in the left subtree.</text>
+
+  <!-- Code: go right -->
+  <rect x="30" y="228" width="500" height="28" rx="6" fill="#1e1e1e"/>
+  <text x="45" y="248" fill="#569cd6" font-size="12" font-family="Consolas, monospace">else if <tspan fill="#d4d4d4">(</tspan><tspan fill="#9cdcfe">value</tspan> &gt; <tspan fill="#9cdcfe">node</tspan>-><tspan fill="#9cdcfe">data</tspan><tspan fill="#d4d4d4">)</tspan>  node-><tspan fill="#9cdcfe">right</tspan> = <tspan fill="#dcdcaa">remove_</tspan>(node-><tspan fill="#9cdcfe">right</tspan>, ...);</text>
+
+  <rect x="30" y="260" width="14" height="14" rx="3" fill="#e67e22"/>
+  <text x="37" y="271" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">2</text>
+  <text x="50" y="271" fill="#e67e22" font-size="11" font-weight="bold">Value is larger &#x2192; go right</text>
+  <text x="50" y="287" fill="#555" font-size="11">The value is greater than this node, so it must be in the right subtree.</text>
+
+  <!-- Code: found it -->
+  <rect x="30" y="306" width="500" height="28" rx="6" fill="#1e1e1e"/>
+  <text x="45" y="326" fill="#569cd6" font-size="12" font-family="Consolas, monospace">else {  <tspan fill="#6a9955">// value == node->data — FOUND IT!</tspan></text>
+
+  <rect x="30" y="338" width="14" height="14" rx="3" fill="#e74c3c"/>
+  <text x="37" y="349" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">3</text>
+  <text x="50" y="349" fill="#e74c3c" font-size="11" font-weight="bold">Found the node &#x2192; handle removal (Cases 1, 2, or 3)</text>
+  <text x="50" y="365" fill="#555" font-size="11">Set removed = true, then determine which case based on how many children the node has.</text>
+
+  <!-- Tree example on the right -->
+  <text x="720" y="76" text-anchor="middle" fill="#888" font-size="11">Example: remove_(root, 20, removed)</text>
+
+  <!-- Tree -->
+  <circle cx="720" cy="112" r="20" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="720" y="117" text-anchor="middle" fill="#2c3e50" font-size="13" font-weight="bold">50</text>
+  <text x="760" y="110" fill="#e67e22" font-size="9">20 &lt; 50</text>
+
+  <line x1="704" y1="128" x2="650" y2="162" stroke="#3498db" stroke-width="3"/>
+  <line x1="736" y1="128" x2="790" y2="162" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <circle cx="650" cy="178" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="650" y="183" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">30</text>
+  <text x="690" y="176" fill="#e67e22" font-size="9">20 &lt; 30</text>
+
+  <circle cx="790" cy="178" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="790" y="183" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">70</text>
+
+  <line x1="636" y1="194" x2="600" y2="224" stroke="#3498db" stroke-width="3"/>
+  <line x1="664" y1="194" x2="700" y2="224" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <circle cx="600" cy="240" r="18" fill="#e74c3c" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="600" y="245" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">20</text>
+  <text x="640" y="238" fill="#e74c3c" font-size="9">found!</text>
+
+  <circle cx="700" cy="240" r="16" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="700" y="245" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">40</text>
+
+  <!-- Walk path annotation -->
+  <text x="570" y="148" fill="#3498db" font-size="10">go left &#x2199;</text>
+  <text x="555" y="215" fill="#3498db" font-size="10">go left &#x2199;</text>
+
+  <!-- Key insight -->
+  <rect x="560" y="280" width="310" height="66" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="715" y="302" text-anchor="middle" fill="#1a5276" font-size="12" font-weight="bold">Same search pattern as search_()!</text>
+  <text x="575" y="322" fill="#555" font-size="11">Compare, go left or right, repeat. The only</text>
+  <text x="575" y="336" fill="#555" font-size="11">difference: when found, we delete instead</text>
+  <text x="575" y="348" fill="#555" font-size="11">of return true.</text>
+
+  <!-- return node at the bottom -->
+  <rect x="30" y="384" width="500" height="28" rx="6" fill="#1e1e1e"/>
+  <text x="45" y="404" fill="#569cd6" font-size="12" font-family="Consolas, monospace">return <tspan fill="#9cdcfe">node</tspan>;  <tspan fill="#6a9955">// pass the (possibly changed) subtree back up</tspan></text>
+</svg>

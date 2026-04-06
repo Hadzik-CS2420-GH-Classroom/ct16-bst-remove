@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <text x="450" y="28" text-anchor="middle" fill="#1a1a1a" font-size="20" font-weight="bold">remove() &#x2014; Public Wrapper</text>
+  <text x="450" y="48" text-anchor="middle" fill="#777" font-size="12">The public method sets up the call, then delegates to the recursive remove_()</text>
+
+  <!-- Variable Key -->
+  <rect x="30" y="62" width="840" height="36" rx="6" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+  <text x="42" y="82" fill="#333" font-size="11" font-weight="bold">Variable Key</text>
+
+  <rect x="130" y="76" width="10" height="10" rx="2" fill="#e74c3c"/>
+  <text x="146" y="86" fill="#555" font-size="10" font-family="Consolas, monospace">value</text>
+  <text x="186" y="86" fill="#555" font-size="10">= the int to remove</text>
+
+  <rect x="350" y="76" width="10" height="10" rx="2" fill="#2980b9"/>
+  <text x="366" y="86" fill="#555" font-size="10" font-family="Consolas, monospace">removed</text>
+  <text x="420" y="86" fill="#555" font-size="10">= did we find and delete it? (output param)</text>
+
+  <rect x="680" y="76" width="10" height="10" rx="2" fill="#27ae60"/>
+  <text x="696" y="86" fill="#555" font-size="10" font-family="Consolas, monospace">root_</text>
+  <text x="730" y="86" fill="#555" font-size="10">= the tree&#x2019;s root pointer</text>
+
+  <!-- Code block -->
+  <rect x="30" y="110" width="460" height="110" rx="8" fill="#1e1e1e"/>
+  <text x="50" y="134" fill="#569cd6" font-size="12" font-family="Consolas, monospace">bool <tspan fill="#dcdcaa">BinarySearchTree::remove</tspan>(<tspan fill="#569cd6">int</tspan> <tspan fill="#9cdcfe">value</tspan>) {</text>
+  <text x="70" y="158" fill="#569cd6" font-size="12" font-family="Consolas, monospace">bool <tspan fill="#9cdcfe">removed</tspan> = <tspan fill="#569cd6">false</tspan>;</text>
+  <text x="70" y="182" fill="#9cdcfe" font-size="12" font-family="Consolas, monospace">root_ = <tspan fill="#dcdcaa">remove_</tspan>(root_, value, removed);</text>
+  <text x="70" y="206" fill="#569cd6" font-size="12" font-family="Consolas, monospace">return <tspan fill="#9cdcfe">removed</tspan>;</text>
+  <text x="50" y="216" fill="#d4d4d4" font-size="12" font-family="Consolas, monospace">}</text>
+
+  <!-- Step annotations -->
+  <rect x="510" y="110" width="14" height="14" rx="3" fill="#2980b9"/>
+  <text x="517" y="121" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">1</text>
+  <text x="530" y="121" fill="#2980b9" font-size="11" font-weight="bold">Create a bool to track if removal happened</text>
+  <text x="530" y="137" fill="#555" font-size="10">Starts false &#x2014; remove_() sets it to true if the value is found</text>
+
+  <rect x="510" y="154" width="14" height="14" rx="3" fill="#27ae60"/>
+  <text x="517" y="165" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">2</text>
+  <text x="530" y="165" fill="#27ae60" font-size="11" font-weight="bold">Call the recursive helper</text>
+  <text x="530" y="181" fill="#555" font-size="10">remove_() does the real work &#x2014; finds the node and</text>
+  <text x="530" y="195" fill="#555" font-size="10">deletes it. Returns the (possibly new) root of the subtree.</text>
+
+  <rect x="510" y="210" width="14" height="14" rx="3" fill="#8e44ad"/>
+  <text x="517" y="221" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">3</text>
+  <text x="530" y="221" fill="#8e44ad" font-size="11" font-weight="bold">Return whether the value was actually removed</text>
+  <text x="530" y="237" fill="#555" font-size="10">true = value found and deleted, false = value wasn&#x2019;t in the tree</text>
+
+  <!-- Key insight -->
+  <rect x="30" y="240" width="840" height="66" rx="10" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="450" y="264" text-anchor="middle" fill="#1a5276" font-size="13" font-weight="bold">Why this pattern? Public/private split</text>
+  <text x="50" y="286" fill="#555" font-size="11">The user calls <tspan font-family="Consolas, monospace">remove(value)</tspan> &#x2014; simple interface, just pass the value. Internally, <tspan font-family="Consolas, monospace">remove_()</tspan> needs access to <tspan font-family="Consolas, monospace">root_</tspan></text>
+  <text x="50" y="300" fill="#555" font-size="11">and tracks success via the <tspan font-family="Consolas, monospace">removed</tspan> reference. This is the same wrapper pattern used by <tspan font-family="Consolas, monospace">insert()</tspan>, <tspan font-family="Consolas, monospace">search()</tspan>, etc.</text>
+</svg>

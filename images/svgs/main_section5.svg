@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <text x="450" y="28" text-anchor="middle" fill="#1a1a1a" font-size="20" font-weight="bold">Section 5: Degenerate BST &#x2014; Why We Need AVL Trees</text>
+  <text x="450" y="48" text-anchor="middle" fill="#777" font-size="12">Inserting sorted values creates a linked list &#x2014; all operations become O(n)</text>
+
+  <!-- Code -->
+  <rect x="30" y="68" width="300" height="28" rx="6" fill="#1e1e1e"/>
+  <text x="45" y="88" fill="#569cd6" font-size="11" font-family="Consolas, monospace">for (<tspan fill="#569cd6">int</tspan> <tspan fill="#9cdcfe">v</tspan> : {1, 2, 3, 4, 5}) degen.<tspan fill="#dcdcaa">insert</tspan>(v);</text>
+
+  <!-- Degenerate tree — right spine -->
+  <text x="150" y="118" text-anchor="middle" fill="#e74c3c" font-size="12" font-weight="bold">Degenerate (sorted insert):</text>
+
+  <circle cx="100" cy="148" r="16" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="100" y="153" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">1</text>
+  <line x1="112" y1="162" x2="140" y2="178" stroke="#e74c3c" stroke-width="2"/>
+
+  <circle cx="140" cy="190" r="16" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="140" y="195" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">2</text>
+  <line x1="152" y1="204" x2="180" y2="220" stroke="#e74c3c" stroke-width="2"/>
+
+  <circle cx="180" cy="232" r="16" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="180" y="237" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">3</text>
+  <line x1="192" y1="246" x2="220" y2="262" stroke="#e74c3c" stroke-width="2"/>
+
+  <circle cx="220" cy="274" r="16" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="220" y="279" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">4</text>
+
+  <text x="250" y="277" fill="#e74c3c" font-size="10">&#x2192; 5</text>
+
+  <text x="150" y="296" fill="#e74c3c" font-size="10">Height = 4 (n-1)</text>
+
+  <!-- Balanced tree comparison -->
+  <text x="550" y="118" text-anchor="middle" fill="#27ae60" font-size="12" font-weight="bold">Balanced (same 5 values):</text>
+
+  <circle cx="550" cy="152" r="16" fill="#27ae60" stroke="#1e8449" stroke-width="1.5"/>
+  <text x="550" y="157" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">3</text>
+
+  <line x1="538" y1="166" x2="490" y2="192" stroke="#27ae60" stroke-width="2"/>
+  <line x1="562" y1="166" x2="610" y2="192" stroke="#27ae60" stroke-width="2"/>
+
+  <circle cx="490" cy="206" r="16" fill="#27ae60" stroke="#1e8449" stroke-width="1.5"/>
+  <text x="490" y="211" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">2</text>
+
+  <circle cx="610" cy="206" r="16" fill="#27ae60" stroke="#1e8449" stroke-width="1.5"/>
+  <text x="610" y="211" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">4</text>
+
+  <line x1="478" y1="220" x2="450" y2="242" stroke="#27ae60" stroke-width="1.5"/>
+  <line x1="622" y1="220" x2="650" y2="242" stroke="#27ae60" stroke-width="1.5"/>
+
+  <circle cx="450" cy="254" r="14" fill="#27ae60" stroke="#1e8449" stroke-width="1"/>
+  <text x="450" y="259" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">1</text>
+
+  <circle cx="650" cy="254" r="14" fill="#27ae60" stroke="#1e8449" stroke-width="1"/>
+  <text x="650" y="259" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">5</text>
+
+  <text x="550" y="286" fill="#27ae60" font-size="10">Height = 2 (log2 n)</text>
+
+  <!-- Comparison box -->
+  <rect x="720" y="140" width="160" height="130" rx="8" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+  <text x="800" y="162" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">Comparison</text>
+
+  <text x="735" y="184" fill="#e74c3c" font-size="10" font-weight="bold">Degenerate:</text>
+  <text x="735" y="198" fill="#555" font-size="10">Height = n - 1 = 4</text>
+  <text x="735" y="212" fill="#555" font-size="10">Search = O(n)</text>
+
+  <text x="735" y="234" fill="#27ae60" font-size="10" font-weight="bold">Balanced:</text>
+  <text x="735" y="248" fill="#555" font-size="10">Height = log2(n) = 2</text>
+  <text x="735" y="262" fill="#555" font-size="10">Search = O(log n)</text>
+</svg>

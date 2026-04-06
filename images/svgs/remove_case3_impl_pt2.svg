@@ -8,18 +8,16 @@
   <!-- STEP 3: Delete the successor -->
   <!-- ================================================================ -->
   <rect x="30" y="70" width="550" height="28" rx="6" fill="#1e1e1e"/>
-  <text x="45" y="90" fill="#569cd6" font-size="12" font-family="Consolas, monospace">bool <tspan fill="#9cdcfe">ignored</tspan> = false;</text>
+  <text x="45" y="90" fill="#9cdcfe" font-size="12" font-family="Consolas, monospace">node-><tspan fill="#9cdcfe">right</tspan> = <tspan fill="#dcdcaa">remove_</tspan>(node-><tspan fill="#9cdcfe">right</tspan>, successor-><tspan fill="#9cdcfe">data</tspan>, removed);</text>
 
-  <rect x="30" y="104" width="550" height="28" rx="6" fill="#1e1e1e"/>
-  <text x="45" y="124" fill="#9cdcfe" font-size="12" font-family="Consolas, monospace">node-><tspan fill="#9cdcfe">right</tspan> = <tspan fill="#dcdcaa">remove_</tspan>(node-><tspan fill="#9cdcfe">right</tspan>, successor-><tspan fill="#9cdcfe">data</tspan>, ignored);</text>
+  <rect x="30" y="106" width="14" height="14" rx="3" fill="#e74c3c"/>
+  <text x="37" y="117" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">3</text>
+  <text x="50" y="117" fill="#e74c3c" font-size="12" font-weight="bold">Delete the original 60 from the right subtree</text>
 
-  <rect x="30" y="140" width="14" height="14" rx="3" fill="#e74c3c"/>
-  <text x="37" y="151" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">3</text>
-  <text x="50" y="151" fill="#e74c3c" font-size="12" font-weight="bold">Delete the original 60 from the right subtree</text>
-
-  <text x="50" y="172" fill="#555" font-size="11">After Step 2, the tree has TWO nodes with value 60. We recursively remove the</text>
-  <text x="50" y="190" fill="#555" font-size="11">original 60 from the right subtree. Since it&#x2019;s the minimum, it has no left child,</text>
-  <text x="50" y="208" fill="#555" font-size="11">so removing it is always Case 1 (leaf) or Case 2 (one child) &#x2014; easy!</text>
+  <text x="50" y="140" fill="#555" font-size="11">After Step 2, the tree has TWO nodes with value 60. We recursively remove the</text>
+  <text x="50" y="158" fill="#555" font-size="11">original 60 from the right subtree. Since it&#x2019;s the minimum, it has no left child,</text>
+  <text x="50" y="176" fill="#555" font-size="11">so removing it is always Case 1 (leaf) or Case 2 (one child) &#x2014; easy!</text>
+  <text x="50" y="196" fill="#888" font-size="10" font-style="italic">We reuse <tspan font-family="Consolas, monospace">removed</tspan> &#x2014; it&#x2019;s already true, and the successor is guaranteed to exist.</text>
 
   <!-- Right subtree: before -->
   <text x="170" y="245" text-anchor="middle" fill="#888" font-size="12">Right subtree before:</text>
@@ -32,7 +30,7 @@
 
   <circle cx="120" cy="342" r="16" fill="#e74c3c" stroke="#c0392b" stroke-width="2" stroke-dasharray="4,3"/>
   <text x="120" y="347" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">60</text>
-  <text x="80" y="333" fill="#e74c3c" font-size="9">delete &#x2198;</text>
+  <text x="68" y="320" fill="#e74c3c" font-size="9">delete &#x2198;</text>
 
   <circle cx="220" cy="342" r="16" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
   <text x="220" y="347" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">80</text>

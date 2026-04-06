@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 390" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <text x="450" y="28" text-anchor="middle" fill="#1a1a1a" font-size="20" font-weight="bold">remove_() Case 2b &#x2014; Only a Left Child</text>
+  <text x="450" y="48" text-anchor="middle" fill="#777" font-size="12">No right child &#x2014; bypass the node and return its left child (mirror of Case 2a)</text>
+
+  <!-- Step 1: Check — only has left child -->
+  <rect x="30" y="70" width="500" height="34" rx="6" fill="#1e1e1e"/>
+  <text x="45" y="92" fill="#6a9955" font-size="12" font-family="Consolas, monospace">// Case 2b: Only a left child</text>
+  <text x="350" y="92" fill="#569cd6" font-size="12" font-family="Consolas, monospace">if <tspan fill="#d4d4d4">(!</tspan><tspan fill="#9cdcfe">node</tspan>-><tspan fill="#9cdcfe">right</tspan><tspan fill="#d4d4d4">)</tspan></text>
+
+  <!-- Tree: initial state -->
+  <text x="720" y="72" text-anchor="middle" fill="#888" font-size="11">remove(70) from this tree:</text>
+
+  <circle cx="680" cy="108" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="680" y="113" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">50</text>
+
+  <line x1="666" y1="122" x2="630" y2="152" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="694" y1="122" x2="730" y2="152" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <circle cx="630" cy="168" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="630" y="173" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">30</text>
+
+  <circle cx="730" cy="168" r="18" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="730" y="173" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">70</text>
+  <text x="780" y="156" fill="#e74c3c" font-size="9">&#x2199; node</text>
+
+  <line x1="716" y1="182" x2="694" y2="210" stroke="#3498db" stroke-width="2.5"/>
+
+  <circle cx="694" cy="226" r="16" fill="#3498db" stroke="#2471a3" stroke-width="2"/>
+  <text x="694" y="231" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">60</text>
+
+  <text x="785" y="170" fill="#555" font-size="10">70 has no right child &#x2714;</text>
+  <text x="785" y="185" fill="#555" font-size="10">only child is 60 (left)</text>
+
+  <!-- Step 2: Save the left child -->
+  <rect x="30" y="120" width="500" height="28" rx="6" fill="#1e1e1e"/>
+  <text x="45" y="140" fill="#4ec9b0" font-size="12" font-family="Consolas, monospace">Node* <tspan fill="#9cdcfe">predecessor</tspan> = <tspan fill="#9cdcfe">node</tspan>-><tspan fill="#9cdcfe">left</tspan>;  <tspan fill="#6a9955">// predecessor = 60</tspan></text>
+
+  <rect x="30" y="152" width="14" height="14" rx="3" fill="#3498db"/>
+  <text x="37" y="163" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">1</text>
+  <text x="50" y="163" fill="#3498db" font-size="11">Save pointer to the left child (60) &#x2014; named <tspan font-family="Consolas, monospace">predecessor</tspan> because it takes node&#x2019;s place</text>
+
+  <!-- Step 3: Delete the node -->
+  <rect x="30" y="180" width="500" height="28" rx="6" fill="#1e1e1e"/>
+  <text x="45" y="200" fill="#569cd6" font-size="12" font-family="Consolas, monospace">delete <tspan fill="#9cdcfe">node</tspan>;  <tspan fill="#6a9955">// free the memory for 70</tspan></text>
+
+  <rect x="30" y="212" width="14" height="14" rx="3" fill="#e74c3c"/>
+  <text x="37" y="223" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">2</text>
+  <text x="50" y="223" fill="#e74c3c" font-size="11">Delete node 70 (free its memory)</text>
+
+  <!-- Step 4: Return predecessor -->
+  <rect x="30" y="240" width="500" height="28" rx="6" fill="#1e1e1e"/>
+  <text x="45" y="260" fill="#569cd6" font-size="12" font-family="Consolas, monospace">return <tspan fill="#9cdcfe">predecessor</tspan>;  <tspan fill="#6a9955">// parent (50) now points to 60</tspan></text>
+
+  <rect x="30" y="272" width="14" height="14" rx="3" fill="#27ae60"/>
+  <text x="37" y="283" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">3</text>
+  <text x="50" y="283" fill="#27ae60" font-size="11">Return 60 &#x2014; parent&#x2019;s pointer now connects to 60 directly</text>
+
+  <!-- Result tree -->
+  <text x="720" y="260" text-anchor="middle" fill="#888" font-size="11">Result:</text>
+
+  <circle cx="680" cy="290" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="680" y="295" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">50</text>
+
+  <line x1="666" y1="304" x2="630" y2="330" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="694" y1="304" x2="730" y2="330" stroke="#3498db" stroke-width="2.5"/>
+
+  <circle cx="630" cy="346" r="18" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="630" y="351" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">30</text>
+
+  <circle cx="730" cy="346" r="18" fill="#3498db" stroke="#2471a3" stroke-width="2"/>
+  <text x="730" y="351" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">60</text>
+  <text x="730" y="372" text-anchor="middle" fill="#3498db" font-size="9">promoted</text>
+
+  <!-- Key insight -->
+  <rect x="30" y="310" width="500" height="56" rx="8" fill="#fff3e0" stroke="#f39c12" stroke-width="1.5"/>
+  <text x="280" y="332" text-anchor="middle" fill="#e65100" font-size="12" font-weight="bold">Exact same logic as Case 2a, just mirrored</text>
+  <text x="45" y="354" fill="#555" font-size="11">2a: no left child &#x2192; return right (<tspan font-family="Consolas, monospace">successor</tspan>).  2b: no right child &#x2192; return left (<tspan font-family="Consolas, monospace">predecessor</tspan>).</text>
+</svg>

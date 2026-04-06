@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <text x="450" y="28" text-anchor="middle" fill="#1a1a1a" font-size="20" font-weight="bold">Section 2: Remove 20 (Case 1 &#x2014; Leaf)</text>
+  <text x="450" y="48" text-anchor="middle" fill="#777" font-size="12">20 has no children &#x2014; just delete it and set parent&#x2019;s pointer to nullptr</text>
+
+  <!-- Before -->
+  <text x="200" y="76" text-anchor="middle" fill="#888" font-size="12">Before: remove(20)</text>
+
+  <circle cx="200" cy="115" r="20" fill="#2980b9" stroke="#1a5276" stroke-width="2"/>
+  <text x="200" y="120" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">50</text>
+
+  <line x1="184" y1="131" x2="130" y2="163" stroke="#bdc3c7" stroke-width="2"/>
+  <line x1="216" y1="131" x2="270" y2="163" stroke="#bdc3c7" stroke-width="2"/>
+
+  <circle cx="130" cy="178" r="17" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="130" y="183" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">30</text>
+
+  <circle cx="270" cy="178" r="17" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="270" y="183" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">70</text>
+
+  <line x1="117" y1="193" x2="80" y2="218" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="143" y1="193" x2="175" y2="218" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="257" y1="193" x2="230" y2="218" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="283" y1="193" x2="310" y2="218" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <circle cx="80" cy="232" r="15" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="80" y="237" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">20</text>
+  <text x="80" y="258" text-anchor="middle" fill="#e74c3c" font-size="9">delete this</text>
+
+  <circle cx="175" cy="232" r="15" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="175" y="237" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">40</text>
+
+  <circle cx="230" cy="232" r="15" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="230" y="237" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">60</text>
+
+  <circle cx="310" cy="232" r="15" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="310" y="237" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">80</text>
+
+  <!-- After -->
+  <text x="650" y="76" text-anchor="middle" fill="#888" font-size="12">After:</text>
+
+  <circle cx="650" cy="115" r="20" fill="#2980b9" stroke="#1a5276" stroke-width="2"/>
+  <text x="650" y="120" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">50</text>
+
+  <line x1="634" y1="131" x2="580" y2="163" stroke="#bdc3c7" stroke-width="2"/>
+  <line x1="666" y1="131" x2="720" y2="163" stroke="#bdc3c7" stroke-width="2"/>
+
+  <circle cx="580" cy="178" r="17" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="580" y="183" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">30</text>
+
+  <circle cx="720" cy="178" r="17" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="720" y="183" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">70</text>
+
+  <line x1="593" y1="193" x2="625" y2="218" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="707" y1="193" x2="680" y2="218" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="733" y1="193" x2="760" y2="218" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <circle cx="625" cy="232" r="15" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="625" y="237" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">40</text>
+
+  <circle cx="680" cy="232" r="15" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="680" y="237" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">60</text>
+
+  <circle cx="760" cy="232" r="15" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="760" y="237" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">80</text>
+
+  <!-- Info -->
+  <rect x="30" y="280" width="840" height="50" rx="8" fill="#eafaf1" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="450" y="300" text-anchor="middle" fill="#1a5e32" font-size="12" font-weight="bold">Case 1: Leaf &#x2014; no children to reconnect</text>
+  <text x="450" y="318" text-anchor="middle" fill="#555" font-size="11">In-order after: 30 40 50 60 70 80  |  remove(20) returned true</text>
+</svg>

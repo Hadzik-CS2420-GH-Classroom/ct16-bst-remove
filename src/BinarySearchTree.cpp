@@ -182,15 +182,20 @@ bool BinarySearchTree::remove(int value) {
 //   - the BST property is maintained throughout
 //
 Node* BinarySearchTree::remove_(Node* node, int value, bool& removed) {
-    // Base case: value not in the tree
+
+    // Step 0: Base case — walked off the tree, value doesn't exist
     if (!node) return nullptr;
 
+    // Step 1: value < node — go left
     if (value < node->data) {
         node->left = remove_(node->left, value, removed);
+
+    // Step 2: value > node — go right
     } else if (value > node->data) {
         node->right = remove_(node->right, value, removed);
+
+    // Step 3: value == node — FOUND IT, handle removal
     } else {
-        // Found the node to remove
         removed = true;
 
         // ------------------------------------
@@ -202,13 +207,17 @@ Node* BinarySearchTree::remove_(Node* node, int value, bool& removed) {
         }
 
         // ------------------------------------
-        // Case 2: One child
+        // Case 2a: Only a right child
         // ------------------------------------
         if (!node->left) {
             Node* successor = node->right;
             delete node;
             return successor;
         }
+
+        // ------------------------------------
+        // Case 2b: Only a left child
+        // ------------------------------------
         if (!node->right) {
             Node* predecessor = node->left;
             delete node;
@@ -221,8 +230,9 @@ Node* BinarySearchTree::remove_(Node* node, int value, bool& removed) {
         Node* successor = find_min_(node->right);
         node->data = successor->data;
 
-        bool ignored = false;
-        node->right = remove_(node->right, successor->data, ignored);
+        // Reuse removed — it's already true, and the successor is guaranteed
+        // to be found, so it stays true. No need for a separate variable.
+        node->right = remove_(node->right, successor->data, removed);
     }
 
     return node;

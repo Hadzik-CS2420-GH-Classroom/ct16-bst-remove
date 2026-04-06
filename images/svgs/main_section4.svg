@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <text x="450" y="28" text-anchor="middle" fill="#1a1a1a" font-size="20" font-weight="bold">Section 4: Remove 30 (Case 3 &#x2014; Two Children)</text>
+  <text x="450" y="48" text-anchor="middle" fill="#777" font-size="12">Insert 20 and 25 to give 30 two children, then remove 30 &#x2014; successor (40) replaces it</text>
+
+  <!-- Before: after inserting 20 and 25 -->
+  <text x="200" y="76" text-anchor="middle" fill="#888" font-size="12">After inserting 20, 25 &#x2014; before remove(30):</text>
+
+  <circle cx="200" cy="115" r="18" fill="#2980b9" stroke="#1a5276" stroke-width="2"/>
+  <text x="200" y="120" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">50</text>
+
+  <line x1="186" y1="130" x2="120" y2="163" stroke="#bdc3c7" stroke-width="2"/>
+  <line x1="214" y1="130" x2="280" y2="163" stroke="#bdc3c7" stroke-width="2"/>
+
+  <circle cx="120" cy="178" r="17" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="120" y="183" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">30</text>
+  <text x="70" y="165" fill="#e74c3c" font-size="9">remove &#x2198;</text>
+
+  <circle cx="280" cy="178" r="17" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="280" y="183" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">70</text>
+
+  <line x1="107" y1="193" x2="70" y2="218" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="133" y1="193" x2="170" y2="218" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="267" y1="193" x2="240" y2="218" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="293" y1="193" x2="320" y2="218" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <circle cx="70" cy="232" r="14" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="70" y="237" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold">20</text>
+
+  <circle cx="170" cy="232" r="14" fill="#8e44ad" stroke="#6c3483" stroke-width="2"/>
+  <text x="170" y="237" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">40</text>
+  <text x="170" y="254" text-anchor="middle" fill="#8e44ad" font-size="8">successor</text>
+
+  <circle cx="240" cy="232" r="14" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="240" y="237" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold">65</text>
+
+  <circle cx="320" cy="232" r="14" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="320" y="237" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold">80</text>
+
+  <!-- 20's right child: 25 -->
+  <line x1="82" y1="244" x2="100" y2="268" stroke="#bdc3c7" stroke-width="1.5"/>
+  <circle cx="100" cy="280" r="13" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="100" y="285" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold">25</text>
+
+  <!-- After -->
+  <text x="650" y="76" text-anchor="middle" fill="#888" font-size="12">After remove(30):</text>
+
+  <circle cx="650" cy="115" r="18" fill="#2980b9" stroke="#1a5276" stroke-width="2"/>
+  <text x="650" y="120" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">50</text>
+
+  <line x1="636" y1="130" x2="570" y2="163" stroke="#bdc3c7" stroke-width="2"/>
+  <line x1="664" y1="130" x2="730" y2="163" stroke="#bdc3c7" stroke-width="2"/>
+
+  <circle cx="570" cy="178" r="17" fill="#8e44ad" stroke="#6c3483" stroke-width="2"/>
+  <text x="570" y="183" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">40</text>
+  <text x="594" y="180" fill="#8e44ad" font-size="8">&#x2190; replaced 30</text>
+
+  <circle cx="730" cy="178" r="17" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="730" y="183" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">70</text>
+
+  <line x1="557" y1="193" x2="520" y2="218" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="717" y1="193" x2="690" y2="218" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="743" y1="193" x2="770" y2="218" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <circle cx="520" cy="232" r="14" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="520" y="237" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold">20</text>
+
+  <circle cx="690" cy="232" r="14" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="690" y="237" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold">65</text>
+
+  <circle cx="770" cy="232" r="14" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="770" y="237" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold">80</text>
+
+  <!-- 20's right child: 25 -->
+  <line x1="532" y1="244" x2="550" y2="268" stroke="#bdc3c7" stroke-width="1.5"/>
+  <circle cx="550" cy="280" r="13" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="550" y="285" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold">25</text>
+
+  <!-- Info -->
+  <rect x="30" y="310" width="840" height="80" rx="8" fill="#fdedec" stroke="#e74c3c" stroke-width="1.5"/>
+  <text x="450" y="332" text-anchor="middle" fill="#922b21" font-size="12" font-weight="bold">Case 3: Two children &#x2014; successor (40) replaces 30</text>
+  <text x="50" y="354" fill="#555" font-size="11">1. find_min_(30&#x2019;s right subtree) = 40  |  2. Copy 40 into the node  |  3. Delete original 40 (was a leaf &#x2192; Case 1)</text>
+  <text x="50" y="374" fill="#555" font-size="11">In-order after: 20 25 40 50 65 70 80  |  remove(999) returns false (not in tree)</text>
+</svg>
