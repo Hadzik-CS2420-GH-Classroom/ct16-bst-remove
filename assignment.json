@@ -1,10 +1,10 @@
 {
   "assignment": {
-    "canvas_title": "👨‍💻 Code-Together Activity 15: Binary Search Trees - Day 2 (Remove)",
+    "canvas_title": "👨‍💻 Code-Together Activity 16: BST Remove",
     "points_possible": 30,
     "submission_types": ["online_url"],
     "github_classroom": true,
     "github_classroom_url": "https://classroom.github.com/a/XXXXXXXX",
-    "executable_name": "ct15-bst-remove.exe"
+    "executable_name": "ct16-bst-remove.exe"
   }
 }

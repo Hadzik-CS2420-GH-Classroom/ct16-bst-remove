@@ -73,7 +73,7 @@
   <text x="555" y="215" fill="#3498db" font-size="10">go left &#x2199;</text>
 
   <!-- Key insight -->
-  <rect x="560" y="280" width="310" height="66" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
+  <rect x="560" y="280" width="310" height="78" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
   <text x="715" y="302" text-anchor="middle" fill="#1a5276" font-size="12" font-weight="bold">Same search pattern as search_()!</text>
   <text x="575" y="322" fill="#555" font-size="11">Compare, go left or right, repeat. The only</text>
   <text x="575" y="336" fill="#555" font-size="11">difference: when found, we delete instead</text>

@@ -1,0 +1,160 @@
+name: Autograding Tests
+on:
+  - push
+  - repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Build Project
+      continue-on-error: true
+      run: |
+        cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+        cmake --build build --config Release
+
+    - name: Build Check
+      id: build
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Build Check
+        command: |
+          if [ -f build/run_tests ]; then
+            echo "Build successful"
+          else
+            echo "Build failed" && exit 1
+          fi
+        timeout: 10
+        max-score: 0
+
+    # ==================== Sanity: CT15 Methods (2 points) ====================
+
+    - name: "Sanity: Insert, Inorder, Height"
+      id: sanity
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: "Sanity: Insert, Inorder, Height"
+        command: cd build && ./run_tests --gtest_filter=CT15Sanity.InsertAndInorder:CT15Sanity.HeightBalancedTree
+        timeout: 10
+        max-score: 2
+
+    # ==================== Remove — Case 1: Leaf (8 points) ====================
+
+    - name: "Remove Leaf: Returns True & Node Gone"
+      id: leaf-basic
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: "Remove Leaf: Returns True & Node Gone"
+        command: cd build && ./run_tests --gtest_filter=BSTRemove.LeafRemoveReturnsTrue:BSTRemove.LeafGone
+        timeout: 10
+        max-score: 4
+
+    - name: "Remove Leaf: Other Nodes Intact & Single-Node Root"
+      id: leaf-edge
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: "Remove Leaf: Other Nodes Intact & Single-Node Root"
+        command: cd build && ./run_tests --gtest_filter=BSTRemove.LeafOtherNodesIntact:BSTRemove.RemoveRootSingleNode
+        timeout: 10
+        max-score: 4
+
+    # ==================== Remove — Case 2: One Child (6 points) ====================
+
+    - name: "Remove One Child: Right Subtree Reconnected"
+      id: one-child-right
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: "Remove One Child: Right Subtree Reconnected"
+        command: cd build && ./run_tests --gtest_filter=BSTRemove.OneChildRightSubtreeReconnected
+        timeout: 10
+        max-score: 3
+
+    - name: "Remove One Child: Left Subtree Reconnected"
+      id: one-child-left
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: "Remove One Child: Left Subtree Reconnected"
+        command: cd build && ./run_tests --gtest_filter=BSTRemove.OneChildLeftSubtreeReconnected
+        timeout: 10
+        max-score: 3
+
+    # ==================== Remove — Case 3: Two Children (8 points) ====================
+
+    - name: "Remove Two Children: In-Order Successor Replaces"
+      id: two-children-subtree
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: "Remove Two Children: In-Order Successor Replaces"
+        command: cd build && ./run_tests --gtest_filter=BSTRemove.TwoChildrenInorderSuccessorReplaces
+        timeout: 10
+        max-score: 4
+
+    - name: "Remove Two Children: Remove Root"
+      id: two-children-root
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: "Remove Two Children: Remove Root"
+        command: cd build && ./run_tests --gtest_filter=BSTRemove.TwoChildrenRemoveRoot
+        timeout: 10
+        max-score: 4
+
+    # ==================== Remove — Non-Existent (2 points) ====================
+
+    - name: "Non-Existent: Returns False & Tree Unchanged"
+      id: non-existent
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: "Non-Existent: Returns False & Tree Unchanged"
+        command: cd build && ./run_tests --gtest_filter=BSTRemove.NonExistentReturnsFalse:BSTRemove.NonExistentTreeUnchanged:BSTRemove.RemoveFromEmptyReturnsFalse
+        timeout: 10
+        max-score: 2
+
+    # ==================== Sequential Removals (2 points) ====================
+
+    - name: "Sequential: Remove All & Multiple Removals"
+      id: sequential
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: "Sequential: Remove All & Multiple Removals"
+        command: cd build && ./run_tests --gtest_filter=BSTRemove.RemoveAllNodes:BSTRemove.RemoveMultipleSequential:BSTRemove.EmptyAfterRemovingOnlyNode
+        timeout: 10
+        max-score: 2
+
+    # ==================== Degenerate BST (2 points) ====================
+
+    - name: "Degenerate: Sorted Insertion Height & Valid BST"
+      id: degenerate
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: "Degenerate: Sorted Insertion Height & Valid BST"
+        command: cd build && ./run_tests --gtest_filter=BSTDegenerate.SortedInsertionHeight:BSTDegenerate.SortedInsertionIsStillValidBST
+        timeout: 10
+        max-score: 2
+
+    # ==================== Grading Reporter ====================
+
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        BUILD_RESULTS: "${{steps.build.outputs.result}}"
+        SANITY_RESULTS: "${{steps.sanity.outputs.result}}"
+        LEAF-BASIC_RESULTS: "${{steps.leaf-basic.outputs.result}}"
+        LEAF-EDGE_RESULTS: "${{steps.leaf-edge.outputs.result}}"
+        ONE-CHILD-RIGHT_RESULTS: "${{steps.one-child-right.outputs.result}}"
+        ONE-CHILD-LEFT_RESULTS: "${{steps.one-child-left.outputs.result}}"
+        TWO-CHILDREN-SUBTREE_RESULTS: "${{steps.two-children-subtree.outputs.result}}"
+        TWO-CHILDREN-ROOT_RESULTS: "${{steps.two-children-root.outputs.result}}"
+        NON-EXISTENT_RESULTS: "${{steps.non-existent.outputs.result}}"
+        SEQUENTIAL_RESULTS: "${{steps.sequential.outputs.result}}"
+        DEGENERATE_RESULTS: "${{steps.degenerate.outputs.result}}"
+      with:
+        runners: build,sanity,leaf-basic,leaf-edge,one-child-right,one-child-left,two-children-subtree,two-children-root,non-existent,sequential,degenerate
