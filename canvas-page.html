@@ -1,0 +1,220 @@
+<!-- Canvas LMS HTML Fragment — paste into the Rich Content Editor (HTML view) -->
+
+<h2>👨‍💻 Code-Together Activity 16: BST Remove</h2>
+
+<h3>&#x1F3AF; Overview</h3>
+<p>An in-class code-together activity implementing the <strong>remove</strong> operation on a Binary Search Tree (BST). Students start with a fully working BST from CT15 (insert, search, traversals, height all provided) and implement <code>find_min_</code> and <code>remove</code> -- the hardest BST operation. Remove has three distinct cases: removing a leaf, removing a node with one child, and removing a node with two children (using the in-order successor). The session closes with a degenerate BST demo that motivates AVL trees.</p>
+
+<h3>&#x1F4D6; Learning Objectives</h3>
+<p>By completing this activity, you will be able to:</p>
+<ul>
+    <li>Implement <strong>find_min_</strong> iteratively, understanding it returns the leftmost node (minimum) of any subtree</li>
+    <li>Explain why the in-order successor is the <strong>minimum of the right subtree</strong> and why it safely replaces a removed node</li>
+    <li>Implement <strong>remove</strong> for Case 1 (leaf): delete the node and return nullptr to the parent</li>
+    <li>Implement <strong>remove</strong> for Case 2 (one child): bypass the node by returning its only child to the parent</li>
+    <li>Implement <strong>remove</strong> for Case 3 (two children): copy the in-order successor's value, then recursively delete the successor</li>
+    <li>Demonstrate the <strong>degenerate BST</strong> produced by sorted insertion and explain why it motivates AVL trees</li>
+</ul>
+
+<h3>&#x1F680; Getting Started</h3>
+
+<h4>Step 1: Accept the Assignment</h4>
+<p>Click the button below to create your personal repository:</p>
+<p><a style="display: inline-block; padding: 10px 24px; font-size: 1em; font-weight: 600; color: #fff; background-color: #0b874b; border-radius: 4px; text-decoration: none;" href="https://classroom.github.com/a/sGWOuFgY" target="_blank" rel="noopener">Accept Assignment on GitHub</a></p>
+
+<div style="padding: 14px 18px; border-radius: 4px; margin-bottom: 16px; background-color: #fcf8e3; border: 1px solid #faebcc; color: #8a6d3b;">
+    <strong>Repository Access Issue?</strong><br />
+    If you don&#x2019;t see the repository after accepting, check your email for the GitHub invite.
+</div>
+
+<h4>Step 2: Clone in Visual Studio</h4>
+<ol>
+    <li>Open <strong>Visual Studio</strong></li>
+    <li>On the start window, click <strong>&#x201C;Clone a repository&#x201D;</strong></li>
+    <li>Paste your repository URL (from GitHub) into the <strong>Repository location</strong> field</li>
+    <li>Choose a local path and click <strong>Clone</strong></li>
+    <li>Visual Studio should automatically detect the CMake project and configure it</li>
+</ol>
+
+<div style="padding: 14px 18px; border-radius: 4px; margin-bottom: 16px; background-color: #d9edf7; border: 1px solid #bce8f1; color: #31708f;">
+    Follow the <strong>Troubleshooting</strong> section at the bottom if CMake does not configure automatically.
+</div>
+
+<h4>Step 3: Wait for CMake Configuration</h4>
+<p>Visual Studio will automatically run CMake. Watch the <strong>Output</strong> window (<em>View &rarr; Output</em>, select <em>&#x201C;Show output from: CMake&#x201D;</em>) until you see:</p>
+<pre style="background-color: #1e1e1e; color: #d4d4d4; padding: 16px 20px; border-radius: 4px; overflow-x: auto; font-family: 'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace; font-size: 0.875em; line-height: 1.6;">CMake generation finished.</pre>
+
+<h3>&#x1F4C1; Project Structure</h3>
+<pre style="background-color: #1e1e1e; color: #d4d4d4; padding: 16px 20px; border-radius: 4px; font-family: 'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace; font-size: 0.875em; line-height: 1.8;">ct16-bst-remove/
+├── CMakeLists.txt
+├── assignment.json
+├── README.md
+├── include/
+│   └── BinarySearchTree.h      # Node struct + class declaration
+├── src/
+│   ├── BinarySearchTree.cpp    # CT15 methods provided; find_min_ and remove_ are TODOs
+│   └── main.cpp                # Demo: find_min_, remove all 3 cases, degenerate BST
+├── tests/
+│   └── ct16_test.cpp           # Google Test suite
+└── images/
+    ├── remove_cases.png         # All three remove cases side by side
+    └── degenerate_bst.png       # Sorted insertion creating a right spine</pre>
+
+<h3>&#x1F4DD; What You&#x2019;ll Do</h3>
+<p>Open <code>BinarySearchTree.cpp</code> -- CT15 methods are already implemented and ready to use. Your two tasks today are <code>find_min_</code> (Section 7) and <code>remove_</code> (Section 8). After implementing each, use <code>main.cpp</code> to test your output. The session ends with the degenerate BST demo: insert 1, 2, 3, 4, 5 in order, observe a height of 4 (= n-1), and discuss why this motivates AVL trees.</p>
+
+<h3>&#x1F4DA; Teaching Order</h3>
+<p>Work through the files in the order <code>main.cpp</code> calls them:</p>
+
+<h4>1. <code>BinarySearchTree.h</code> &mdash; Review interface additions</h4>
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">Section</th>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">What You&#x2019;ll Learn</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<h4>2. <code>BinarySearchTree.cpp</code> &mdash; Two TODOs</h4>
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">Section</th>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">What You&#x2019;ll Learn</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Section 7: find_min_</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">iterative leftmost walk; used internally by remove_</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Section 8: remove / remove_</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">three cases: leaf (delete, return nullptr), one child (bypass), two children (copy successor, delete successor)</td>
+        </tr>
+    </tbody>
+</table>
+<h4>3. <code>main.cpp</code> &mdash; Demo driver (5 sections)</h4>
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">Section</th>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">What You&#x2019;ll Learn</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Section 1: Build and verify</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">insert 50, 30, 70, 20, 40, 60, 80; print in-order and height from CT15</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Section 2: Remove Case 1</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">remove leaf (20); show in-order before/after</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Section 3: Remove Case 2</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">insert 65, remove 60 (one child); show bypass</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Section 4: Remove Case 3</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">re-insert 20, 25; remove 30 (two children); show in-order successor</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Section 5: Degenerate BST</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">insert 1..5 sorted; height = 4 = n-1; AVL motivation</td>
+        </tr>
+    </tbody>
+</table>
+<h3>&#x1F5BC;&#xFE0F; Diagrams</h3>
+<p>Diagrams are included in the <code>images/</code> folder and referenced in the source code comments. These help visualize what&#x2019;s happening:</p>
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">Diagram</th>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">Shows</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;"><code>images/remove_cases.png</code></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;"></td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;"><code>images/degenerate_bst.png</code></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;"></td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>&#x1F4CA; Grading (30 points)</h3>
+<p>Your code is auto-graded by GitHub Classroom when you push. Tests check that each TODO produces the correct output.</p>
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; background-color: #f5f5f5; font-weight: 700;">Category</th>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; background-color: #f5f5f5; font-weight: 700;">Points</th>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; background-color: #f5f5f5; font-weight: 700;">What is tested</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Build</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">0</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Project must compile (tests won't run otherwise)</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">find_min_ (via remove)</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">10</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Correct in-order successor selection in two-children case</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Remove Case 1 -- leaf</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">8</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Leaf removed, tree unchanged otherwise, returns true/false correctly</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Remove Case 2 -- one child</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">6</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Bypassed correctly for left-child and right-child variants</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Remove Case 3 -- two children</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">6</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">In-order successor replaces node; successor deleted; tree valid BST</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px; font-weight: 700; background-color: #f5f5f5;"><strong>Total</strong></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px; font-weight: 700; background-color: #f5f5f5;"><strong>30</strong></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px; background-color: #f5f5f5;"></td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>&#x1F527; Troubleshooting</h3>
+
+<h4>CMake does not configure automatically</h4>
+<ol>
+    <li>Make sure you have <strong>Desktop development with C++</strong> workload installed in Visual Studio</li>
+    <li>Go to <em>Project &rarr; CMake Settings</em> and ensure the configuration is correct</li>
+    <li>Try <em>Project &rarr; Delete Cache and Reconfigure</em></li>
+    <li>Verify that <code>CMakeLists.txt</code> is in the root of your cloned repository</li>
+</ol>
+
+<h4>Tests fail to build</h4>
+<ul>
+    <li>Google Test is fetched automatically via CMake&#x2019;s <code>FetchContent</code> &mdash; make sure you have an internet connection during the first build</li>
+    <li>Do <strong>not</strong> modify header files in the <code>include/</code> folder</li>
+</ul>
+
+<h4>Running the Program</h4>
+<ol>
+    <li>In Visual Studio, select <code>ct16-bst-remove.exe</code> as the startup item from the dropdown</li>
+    <li>Press <strong>Ctrl+F5</strong> to run without debugging</li>
+    <li>You should see output from each section as you complete the TODOs</li>
+</ol>
+
+<div style="padding: 14px 18px; border-radius: 4px; margin-bottom: 16px; background-color: #dff0d8; border: 1px solid #d6e9c6; color: #3c763d;">
+    <strong>Tip:</strong> Look for the <code>// ! DISCUSSION:</code> comments in each file &mdash; these explain the &#x201C;why&#x201D; behind each concept. The <code>// ? SEE DIAGRAM:</code> comments point you to visual aids in the <code>images/</code> folder.
+</div>
