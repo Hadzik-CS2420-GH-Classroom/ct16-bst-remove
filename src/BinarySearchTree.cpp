@@ -1,8 +1,8 @@
 // =============================================================================
-// CT15: Binary Search Tree — Day 2 (Remove)
+// CT16: Binary Search Tree — Day 2 (Remove)
 // =============================================================================
 //
-// CT14 methods (constructor, insert, search, traversals, height) are provided
+// CT15 methods (constructor, insert, search, traversals, height) are provided
 // and fully implemented — students can use them from the start of class.
 //
 // Today's focus: find_min_ and remove (all three cases).
@@ -12,7 +12,7 @@
 #include <iostream>
 
 // =============================================================================
-// 1. Constructor / Destructor  [PROVIDED — from CT14]
+// 1. Constructor / Destructor  [PROVIDED — from CT15]
 // =============================================================================
 
 BinarySearchTree::BinarySearchTree() : root_(nullptr) {}
@@ -29,7 +29,7 @@ void BinarySearchTree::destroy_(Node* node) {
 }
 
 // =============================================================================
-// 2. insert / insert_  [PROVIDED — from CT14]
+// 2. insert / insert_  [PROVIDED — from CT15]
 // =============================================================================
 
 void BinarySearchTree::insert(int value) {
@@ -49,7 +49,7 @@ Node* BinarySearchTree::insert_(Node* node, int value) {
 }
 
 // =============================================================================
-// 3. search / search_  [PROVIDED — from CT14]
+// 3. search / search_  [PROVIDED — from CT15]
 // =============================================================================
 
 bool BinarySearchTree::search(int value) const {
@@ -67,7 +67,7 @@ bool BinarySearchTree::search_(Node* node, int value) const {
 }
 
 // =============================================================================
-// 4. Traversals  [PROVIDED — from CT14]
+// 4. Traversals  [PROVIDED — from CT15]
 // =============================================================================
 
 void BinarySearchTree::inorder() const {
@@ -107,7 +107,7 @@ void BinarySearchTree::postorder_(Node* node) const {
 }
 
 // =============================================================================
-// 5. height / height_  [PROVIDED — from CT14]
+// 5. height / height_  [PROVIDED — from CT15]
 // =============================================================================
 
 int BinarySearchTree::height() const {
@@ -120,7 +120,7 @@ int BinarySearchTree::height_(Node* node) const {
 }
 
 // =============================================================================
-// 6. is_empty  [PROVIDED — from CT14]
+// 6. is_empty  [PROVIDED — from CT15]
 // =============================================================================
 
 bool BinarySearchTree::is_empty() const {

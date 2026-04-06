@@ -19,7 +19,7 @@ static std::string capture_traversal(BinarySearchTree& bst, char which) {
 }
 
 // =============================================================================
-// Sanity: provided CT14 methods still work
+// Sanity: provided CT15 methods still work
 // =============================================================================
 
 TEST(CT15Sanity, InsertAndInorder) {

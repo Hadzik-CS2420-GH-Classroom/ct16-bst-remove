@@ -1,5 +1,5 @@
 // =============================================================================
-// CT15: Binary Search Tree — Day 2 (Remove) — Demo Driver
+// CT16: Binary Search Tree — Day 2 (Remove) — Demo Driver
 // =============================================================================
 //
 // This demo builds on CT15. The BST (insert, search, traversals, height)
